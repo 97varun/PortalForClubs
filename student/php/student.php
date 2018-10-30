@@ -1,8 +1,6 @@
 <?php
 
-    /* Attempt MySQL server connection. Assuming you are running MySQL
-    server with default setting (user 'root' with no password) */
-    session_start(); // hardcoded for now
+    session_start(); 
     $mysqli = new mysqli("localhost", "root", "", "Portal");
     $result = $mysqli->query("SELECT Student_name FROM students WHERE Student_USN = '" . $_SESSION['usn'] . "'");
     $row = $result->fetch_assoc();
