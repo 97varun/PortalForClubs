@@ -1,0 +1,62 @@
+<html ng-app="notesApp">
+
+
+<head>
+	<title> ClubPages </title>
+	<style>
+	
+	body {margin-top:50px;text-align: center;}form {display: inline-block;}
+	.button {
+					  padding: 15px 25px;
+					  font-size: 24px;
+					  text-align: center;
+					  cursor: pointer;
+					  outline: none;
+					  color: #fff;
+					  background-color:#FF6347 ;
+					  border: none;
+					  border-radius: 15px;
+					  color:black;
+					  margin-top:30px;
+					  align:center;
+					 
+					}
+
+			.button:hover {background-color: #FF7F50}
+	</style>
+	
+</head>
+
+
+<body ng-controller="MainCtrl as ctrl">
+
+	<div  >
+	<form  method="POST" action="../php/clubHomepage.php" >
+		<div ng-repeat="names in ctrl.clubs" >
+		<input class="button" type="submit" name="clubname" value="{{names}}" />
+		</br>
+		</div>
+	
+	</form>
+
+	</div>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"> </script>
+	<script>
+		
+		angular.module("notesApp",[]).controller("MainCtrl",["$http",function($http){
+			var self=this;
+			self.clubs={}
+			
+			$http.get("../php/clubNames.php").then(function(response){
+				self.clubs=response.data;			
+			},function(err){});
+			
+			
+			
+		}])
+
+	</script>
+</body>
+</html>

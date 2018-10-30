@@ -1,0 +1,82 @@
+<html>
+<head>
+<style>
+h1.class1{
+color:Crimson;
+text-align:center;
+font-family: "Rockwell";
+font-variant: small-caps;
+}
+#form {
+font-family: "Rockwell";
+font-variant: small-caps;
+ height: 600px;
+ width: 600px;
+ margin-right: auto;
+ margin-left: auto;
+ margin-top: 0px;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+ padding: 0px;
+}
+label {
+	text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+input {
+ height: 25px;
+ width: 350px;
+ border: 1px solid #000;
+ margin-top: 0px;
+ float: right;
+ margin-right:10px;
+}
+.button{
+background-color:blue;
+color:white;
+}
+p{
+color:red;
+font-size:12;
+}
+span{
+color:red;
+
+}
+</style>
+<h1 class="class1">Create Event</h1>
+
+</head>
+<body>
+<form id="form" method="POST" action="../php/event.php">
+<fieldset>
+<br/><br/>
+
+<input type="date">Date<span>*</span></input>
+<br><br>
+<input type="time"> Time<span>*</span></input>
+<br><br>
+<input type="time"> Add End Time<span>*</span></input>
+<br><br>
+<input type="text" placeholder="Type Here..."> What are you planning?<span>*</span></input>
+<br><br>
+<input type="text"> Where?<span>*</span></input>
+
+<br><br>
+<input type="text"> More Information?</input>
+
+<br><br>
+<input type="text"> Who is invited?</input>
+<br><br>
+   <p class="mandate">Fields marked with * are mandatory </p>
+   <input name="create" type="submit" class="button" value="Create" color="blue" />
+ </fieldset>
+
+</form>
+ 
+</div>
+
+</body>
+</html>
