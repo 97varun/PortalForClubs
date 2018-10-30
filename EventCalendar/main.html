@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/css/fullcalendar.css"/>
+    <script src="lib/js/jquery-3.3.1.min.js"></script>
+    <script src="lib/js/moment.min.js"></script>
+    <script src="lib/js/fullcalendar.js"></script>
+    <script src="lib/js/popper.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <style>
+        /* don't do scrollbars */
+        body {
+            overflow: hidden; 
+        }
+        /* positioning parent div of calendar */
+        #calendar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1%;
+        }
+        /* removes extra border on the first row of table inside popover */
+        .borderless tr:first-child td {
+            border: none;
+        }
+        /* aligns close button with text vertically */
+        .close {
+            position: relative;
+            bottom: 3px;
+        }
+        /* shows popover content neatly */
+        .popover{
+           max-width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div id='calendar-container'>
+        <div id='calendar'></div>
+    </div>
+    <!-- content for popover that comes up when you click an event -->
+    <div id="popover-content" class="invisible">
+        <!-- table with first column containing icons and second with text -->
+        <table class="table borderless">
+            <tr>
+                <td class="align-middle">
+                    <span class="fa fa-clock-o fa-lg"></span>
+                </td>
+                <td id="time"></td>
+            </tr>
+            <tr>
+                <td class="align-middle">
+                    <span class="fa fa-align-left fa-lg"></span>
+                </td>
+                <td id="desc" class="text-justify"></td>
+            </tr>
+            <tr>
+                <td class="align-middle">
+                    <span class="fa fa-map-marker fa-lg"></span>
+                </td>
+                <td id="venue"></td>
+            </tr>
+        </table>
+        <!-- button group at the bottom of the popover -->
+        <div class="btn-group btn-group-justified" style="width: 100%;">
+            <a class="btn btn-outline-primary btn-sm" href="#" style="width: 33.33%">
+                    <span class="fa fa-external-link fa-fw"></span>More
+            </a>
+            <a class="btn btn-outline-secondary btn-sm" href="#" style="width: 33.33%">
+                <span class="fa fa-pencil fa-fw"></span>Edit
+            </a>
+            <a class="btn btn-outline-danger btn-sm" href="#" style="width: 33.34%;">
+                <span class="fa fa-trash fa-fw"></span>Delete
+            </a>
+        </div>
+    </div>
+</body>
+</html>
