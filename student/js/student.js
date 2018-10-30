@@ -2,7 +2,7 @@
 xhr = new XMLHttpRequest();
 function check(){
 	xhr.onreadystatechange = userUpdate;
-	xhr.open("POST", "../php/index.php", true);
+	xhr.open("POST", "../php/student.php", true);
 	xhr.send();
 }
 function userUpdate(){
