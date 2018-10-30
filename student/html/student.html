@@ -1,16 +1,64 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/student.css">
-<script  src="../js/student.js"></script>
-</head>
-<body>
+	<head>
+		<title>Student Home Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<noscript><link rel="stylesheet" href="../css/noscript.css" /></noscript>
+	</head>
+	<body onload = "check()"class="is-preload">
 
+		<!-- Wrapper -->
+			<div id="wrapper">
 
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+							<h1 id='name'></h1>
+							<h1 id='usn'></h3>
+						</header>
+						
+						<hr />
+						<form method="post" action="#">
+								<ul class="actions special">
+								<li><a href="#" class="button">Upcoming Events</a></li>
+								<li><a href="#" class="button">Clubs</a></li>
+								<li><a href="#" class="button">Calender</a></li>
+							</ul>
+						</form>
+						<hr />
+					</section>
 
-<button class="button" onclick="clubs()">Clubs</button>
-<button class="button" onclick="events()">Upcoming events</button>
+				<!-- Footer -->
+					<footer id="footer">
+					</footer>
 
-</body>
+			</div>
+
+		<!-- Scripts -->
+			<script>
+			xhr = new XMLHttpRequest();
+				function check(){
+					xhr.onreadystatechange = userUpdate;
+					xhr.open("POST", "index.php", true);
+					xhr.send();
+				}
+				function userUpdate(){
+					if(this.readyState == 4 && this.status == 200){
+						var res = this.responseText;
+						b = res.split(';')
+						console.log(b);
+						document.getElementById("name").innerHTML = "Name:"+b[0];
+						document.getElementById("usn").innerHTML = "USN:"+b[1];
+					}
+				}
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+	</body>
 </html>
