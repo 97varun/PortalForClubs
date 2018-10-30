@@ -49,8 +49,7 @@ $(document).ready(function() {
                 content: function() {
                     return content.html();
                 },
-                placement: 'right',
-                fallbackPlacement: ['left', 'bottom', 'top']
+                placement: 'left',
             }).popover('show');
             
             // function to remove popover and handlers
