@@ -87,19 +87,6 @@ INSERT INTO `club_member` (`Club_ID`, `Member_USN`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `college_events`
---
-
-CREATE TABLE `college_events` (
-  `Event_name` varchar(50) NOT NULL,
-  `Admin_USN` varchar(20) NOT NULL,
-  `Club_ID` varchar(20) NOT NULL,
-  `Fest_ID` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `create_event`
 --
 
@@ -127,16 +114,6 @@ INSERT INTO `create_event` (`event_id`, `club_id`, `date`, `time`, `end_time`, `
 (11, '2', '2018-10-26', '03:45:00', '14:34:00', 'Dance', 'mrd', ' ', '', ''),
 (12, '3', '2018-10-27', '19:00:00', '19:30:00', 'DJ', 'OAT', 'xyz', 'All college students', 0x3530363938372e6a7067);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `fest`
---
-
-CREATE TABLE `fest` (
-  `Fest_name` varchar(50) NOT NULL,
-  `Fest_ID` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -190,14 +167,7 @@ ALTER TABLE `club_member`
   ADD PRIMARY KEY (`Club_ID`,`Member_USN`),
   ADD KEY `Member_USN` (`Member_USN`);
 
---
--- Indexes for table `college_events`
---
-ALTER TABLE `college_events`
-  ADD PRIMARY KEY (`Event_name`),
-  ADD KEY `Club_ID` (`Club_ID`),
-  ADD KEY `Admin_USN` (`Admin_USN`),
-  ADD KEY `Fest_ID` (`Fest_ID`);
+
 
 --
 -- Indexes for table `create_event`
@@ -206,11 +176,6 @@ ALTER TABLE `create_event`
   ADD PRIMARY KEY (`event_id`),
   ADD KEY `club_id` (`club_id`);
 
---
--- Indexes for table `fest`
---
-ALTER TABLE `fest`
-  ADD PRIMARY KEY (`Fest_ID`);
 
 --
 -- Indexes for table `students`
@@ -245,13 +210,6 @@ ALTER TABLE `club_member`
   ADD CONSTRAINT `club_member_ibfk_1` FOREIGN KEY (`Club_ID`) REFERENCES `club` (`Club_ID`) ON DELETE CASCADE,
   ADD CONSTRAINT `club_member_ibfk_2` FOREIGN KEY (`Member_USN`) REFERENCES `students` (`Student_USN`) ON DELETE CASCADE;
 
---
--- Constraints for table `college_events`
---
-ALTER TABLE `college_events`
-  ADD CONSTRAINT `college_events_ibfk_1` FOREIGN KEY (`Club_ID`) REFERENCES `club` (`Club_ID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `college_events_ibfk_2` FOREIGN KEY (`Admin_USN`) REFERENCES `students` (`Student_USN`) ON DELETE CASCADE,
-  ADD CONSTRAINT `college_events_ibfk_3` FOREIGN KEY (`Fest_ID`) REFERENCES `fest` (`Fest_ID`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `create_event`
