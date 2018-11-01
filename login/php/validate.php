@@ -9,7 +9,7 @@ $srn=$_POST["srn"];
 $pass=$_POST["pass"];
 $role=$_POST["role"];
 $_SESSION["srn"]=$srn;
-
+$_SESSION["role"]=$role;
 /*
 extract($_GET);
 $srn=$_GET["srn"];
