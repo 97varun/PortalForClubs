@@ -6,7 +6,7 @@ var checkName = 0;
     		name = document.getElementById('name').value;
     		xhr1 = new XMLHttpRequest();
 			xhr1.onreadystatechange = checkUser; // not sure if i can pass an argument
-			xhr1.open("POST", "check.php", true);
+			xhr1.open("POST", "../php/check.php", true);
 			xhr1.setRequestHeader("Content-type","application/x-www-form-urlencoded")
 			xhr1.send("name="+name);
     	}
@@ -32,7 +32,7 @@ var checkName = 0;
     		email = document.getElementById('email').value;
     		xhr2 = new XMLHttpRequest();
 			xhr2.onreadystatechange = checkEmail; // not sure if i can pass an argument
-			xhr2.open("POST", "check.php", true);
+			xhr2.open("POST", "../php/check.php", true);
 			xhr2.setRequestHeader("Content-type","application/x-www-form-urlencoded")
 			xhr2.send("email="+email);
     	}
@@ -57,7 +57,7 @@ var checkName = 0;
     		usn = document.getElementById('usn').value;
  			xhr3 = new XMLHttpRequest();
 			xhr3.onreadystatechange = checkusn; // not sure if i can pass an argument
-			xhr3.open("POST", "check.php", true);
+			xhr3.open("POST", "../php/check.php", true);
 			xhr3.setRequestHeader("Content-type","application/x-www-form-urlencoded")
 			xhr3.send("usn="+usn);
     	}
