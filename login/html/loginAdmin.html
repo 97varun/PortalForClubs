@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Admin Login</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../css/login.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<h1> Admin Account </h1>
+							<span class="avatar"><img src="../images/admin.jpg" alt="" /></span>
+						</header>
+						<div id="hdiv" style="visibility:hidden"></div>
+						<hr />
+						<div id="role" style="visibility:hidden">Student</div>
+						<form method="post" action="#">
+							
+							<input type="text" placeholder="Srn" id="srn" onfocus="cr()"/>	 
+							</br>							
+							<input type="password" placeholder="Password" id="pass" onfocus="cr()"/>	
+							</br>		
+							
+							<input type="button" value="SUBMIT" onclick="chk()" />
+							
+						</form>
+						<hr />
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="../js/login.js"> </script>
+	</body>
+</html>
