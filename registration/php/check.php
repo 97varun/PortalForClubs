@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$mysqli = new mysqli("localhost", "root", "", "Portal");
+	$mysqli = new mysqli("localhost", "root", "", "portal");
 	extract($_POST);
 	if(isset($_POST['name'])){
 		$sql = "SELECT count(1) FROM students WHERE Student_name = '" . $_POST['name'] . "'";
