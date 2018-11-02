@@ -99,20 +99,21 @@ CREATE TABLE `create_event` (
   `event_name` varchar(20) NOT NULL,
   `place` varchar(100) NOT NULL,
   `more_info` text NOT NULL,
-  `invite` text NOT NULL,
-  `image` blob NOT NULL
+  `invite` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `create_event`
 --
 
-INSERT INTO `create_event` (`event_id`, `club_id`, `date`, `time`, `end_time`, `event_name`, `place`, `more_info`, `invite`, `image`) VALUES
-(8, '1', '2018-10-11', '16:35:00', '16:45:00', 'xxxxxxxxx', 'xxxxxxx', ' ', 'xxxxxxxxxxxx', ''),
-(9, '1', '2018-10-16', '14:34:00', '15:50:00', 'Singing competiton', 'OAT', ' ', '', ''),
-(10, '2', '2018-10-27', '14:34:00', '14:34:00', 'Drawing', 'Panini', '', '', ''),
-(11, '2', '2018-10-26', '03:45:00', '14:34:00', 'Dance', 'mrd', ' ', '', ''),
-(12, '3', '2018-10-27', '19:00:00', '19:30:00', 'DJ', 'OAT', 'xyz', 'All college students', 0x3530363938372e6a7067);
+INSERT INTO `create_event` (`event_id`, `club_id`, `date`, `time`, `end_time`, `event_name`, `place`, `more_info`, `invite`) VALUES
+(8, '1', '2018-10-11', '16:35:00', '16:45:00', 'xxxxxxxxx', 'xxxxxxx', 'xx', 'xxxxxxxxxxxx'),
+(9, '1', '2018-10-16', '14:34:00', '15:50:00', 'Singing competiton', 'OAT', 'sd', 'dsf'),
+(10, '2', '2018-10-27', '14:34:00', '14:34:00', 'Drawing', 'Panini', 'sdf', 'dfsd'),
+(11, '2', '2018-10-26', '03:45:00', '14:34:00', 'Dance', 'mrd', 'dsfdf', 'fff'),
+(12, '3', '2018-10-27', '19:00:00', '19:30:00', 'DJ', 'OAT', 'xyz', 'All college students'),
+(19, '2', '2018-12-14', '19:45:00', '23:45:00', 'Halloween', 'Whitefield', 'With costumes', 'All college students'),
+(20, '3', '2018-12-29', '04:56:00', '04:56:00', 'hhhrty', 'rhrt', 'rty', '54t54');
 
 
 -- --------------------------------------------------------
