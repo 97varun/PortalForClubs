@@ -25,7 +25,8 @@ label {
     float:left;
     margin-right:15px;
 }
-input {
+input,.dropbox {
+color: black;
  height: 25px;
  width: 350px;
  border: 1px solid #000;
@@ -43,7 +44,6 @@ font-size:12;
 }
 span{
 color:red;
-
 }
 </style>
 <h1 class="class1">Create Event</h1>
@@ -54,25 +54,39 @@ color:red;
 <fieldset>
 <br/><br/>
 
-<input type="date">Date<span>*</span></input>
+<input type="date" name="date">Date<span>*</span></input>
 <br><br>
-<input type="time"> Time<span>*</span></input>
-<br><br>
-<input type="time"> Add End Time<span>*</span></input>
-<br><br>
-<input type="text" placeholder="Type Here..."> What are you planning?<span>*</span></input>
-<br><br>
-<input type="text"> Where?<span>*</span></input>
 
+<input type="time" name="time"> Time<span>*</span></input>
 <br><br>
-<input type="text"> More Information?</input>
 
+<input type="time" name="end_time"> Add End Time<span>*</span></input>
 <br><br>
-<input type="text"> Who is invited?</input>
+
+ Club?<span>*</span>
+<select class="dropbox" name="club_id">
+    <option value="1">Club 1</option>
+    <option value="2">Club 2</option>
+    <option value="3">Club 3</option>
+</select>
 <br><br>
-   <p class="mandate">Fields marked with * are mandatory </p>
-   <input name="create" type="submit" class="button" value="Create" color="blue" />
- </fieldset>
+
+<input type="text" name="event_name" placeholder="Type Here..."> What are you planning?<span>*</span></input>
+<br><br>
+
+<input type="text" name="place"> Where?<span>*</span></input>
+<br><br>
+
+<input type="text" name="more_info"> More Information?</input>
+<br><br>
+
+<input type="text" name="invite"> Who is invited?</input>
+<br><br>
+
+<p class="mandate">Fields marked with * are mandatory </p>
+<input name="create" type="submit" class="button" value="Create" color="blue" />
+ 
+</fieldset>
 
 </form>
  
