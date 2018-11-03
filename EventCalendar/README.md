@@ -8,6 +8,6 @@
 * Nothing in my knowledge
 ### Screenshot
 #### Event Details
-![screenshot](https://raw.githubusercontent.com/VarunV-007/EventCalendar/master/screenshots/ss1.png)
+![screenshot](https://raw.githubusercontent.com/VarunV-007/PortalForClubs/master/EventCalendar/screenshots/ss1.png)
 #### Confirmation on delete
-![screenshot](https://raw.githubusercontent.com/VarunV-007/EventCalendar/master/screenshots/ss2.png)
+![screenshot](https://raw.githubusercontent.com/VarunV-007/PortalForClubs/master/EventCalendar/screenshots/ss2.png)
