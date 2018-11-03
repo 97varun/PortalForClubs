@@ -93,8 +93,8 @@ INSERT INTO `club_member` (`Club_ID`, `Member_USN`) VALUES
 CREATE TABLE `create_event` (
   `event_id` int(11) NOT NULL,
   `club_id` varchar(20) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `date_cur` date NOT NULL,
+  `time_cur` time NOT NULL,
   `end_time` time NOT NULL,
   `event_name` varchar(20) NOT NULL,
   `place` varchar(100) NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE `create_event` (
 -- Dumping data for table `create_event`
 --
 
-INSERT INTO `create_event` (`event_id`, `club_id`, `date`, `time`, `end_time`, `event_name`, `place`, `more_info`, `invite`) VALUES
+INSERT INTO `create_event` (`event_id`, `club_id`, `date_cur`, `time_cur`, `end_time`, `event_name`, `place`, `more_info`, `invite`) VALUES
 (8, '1', '2018-10-11', '16:35:00', '16:45:00', 'xxxxxxxxx', 'xxxxxxx', 'xx', 'xxxxxxxxxxxx'),
 (9, '1', '2018-10-16', '14:34:00', '15:50:00', 'Singing competiton', 'OAT', 'sd', 'dsf'),
 (10, '2', '2018-10-27', '14:34:00', '14:34:00', 'Drawing', 'Panini', 'sdf', 'dfsd'),
