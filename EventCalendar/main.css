@@ -9,16 +9,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 1%;
+    padding: 0.5%;
 }
 /* removes extra border on the first row of table inside popover */
 .borderless tr:first-child td {
     border: none;
 }
-/* aligns close button with text vertically */
+/* adjust size of close button */
 .close {
-    position: relative;
-    bottom: 3px;
+    size: 20px;
 }
 /* centers the delete button */
 #del {
@@ -44,4 +43,8 @@ body {
 }
 #cfm-dia {
     display: none;
+}
+.popover-header {
+    min-height: 45px;
+    font-size: 20px;
 }
