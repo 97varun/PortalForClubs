@@ -1,96 +1,54 @@
+<!DOCTYPE HTML>
 <html>
 <head>
-<style>
-h1.class1{
-color:Crimson;
-text-align:center;
-font-family: "Rockwell";
-font-variant: small-caps;
-}
-#form {
-font-family: "Rockwell";
-font-variant: small-caps;
- height: 600px;
- width: 600px;
- margin-right: auto;
- margin-left: auto;
- margin-top: 0px;
- border-top-left-radius: 10px;
- border-top-right-radius: 10px;
- padding: 0px;
-}
-label {
-	text-align: right;
-    clear: both;
-    float:left;
-    margin-right:15px;
-}
-input,.dropbox {
-color: black;
- height: 25px;
- width: 350px;
- border: 1px solid #000;
- margin-top: 0px;
- float: right;
- margin-right:10px;
-}
-.button{
-background-color:blue;
-color:white;
-}
-p{
-color:red;
-font-size:12;
-}
-span{
-color:red;
-}
-</style>
-<h1 class="class1">Create Event</h1>
-
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../css/main.css" />
 </head>
-<body>
-<form id="form" method="POST" action="../php/event.php">
-<fieldset>
-<br/><br/>
+<body class="is-preload">
+	<div id="wrapper">
+		<section id="main">
+			<h1>Create Event</h1>
+			<hr />
+			<form  method="POST" action="../php/event.php">
+				Date<span>*</span><input type="date" name="date"></input>
+				<br><br>
 
-<input type="date" name="date">Date<span>*</span></input>
-<br><br>
+				Time<span>*</span><input type="time" name="time"></input>
+				<br><br>
 
-<input type="time" name="time"> Time<span>*</span></input>
-<br><br>
+				Add End Time<span>*</span><input type="time" name="end_time"></input>
+				<br><br>
 
-<input type="time" name="end_time"> Add End Time<span>*</span></input>
-<br><br>
+				Club?<span>*</span>
+				<select class="dropbox" name="club_id">
+				<option value="1">Club 1</option>
+				<option value="2">Club 2</option>
+				<option value="3">Club 3</option>
+				</select>
+				<br><br>
 
- Club?<span>*</span>
-<select class="dropbox" name="club_id">
-    <option value="1">Club 1</option>
-    <option value="2">Club 2</option>
-    <option value="3">Club 3</option>
-</select>
-<br><br>
+				What are you planning?<span>*</span><input type="text" name="event_name" placeholder="Type Here..."></input>
+				<br><br>
 
-<input type="text" name="event_name" placeholder="Type Here..."> What are you planning?<span>*</span></input>
-<br><br>
+				Where?<span>*</span><input type="text" name="place"></input>
+				<br><br>
 
-<input type="text" name="place"> Where?<span>*</span></input>
-<br><br>
+				More Information?<input type="text" name="more_info"></input>
+				<br><br>
 
-<input type="text" name="more_info"> More Information?</input>
-<br><br>
+				Who is invited?<input type="text" name="invite"> </input>
+				<br>
 
-<input type="text" name="invite"> Who is invited?</input>
-<br><br>
+				<p class="mandate">Fields marked with * are mandatory </p>
+				<input name="create" type="submit" class="button" value="Create" color="blue" />
+			</form>
+			<hr />
+		</section>
+		<footer id="footer">
+		</footer>
+	</div>
 
-<p class="mandate">Fields marked with * are mandatory </p>
-<input name="create" type="submit" class="button" value="Create" color="blue" />
- 
-</fieldset>
-
-</form>
- 
-</div>
-
+<script src="../js/student.js"> </script>
 </body>
 </html>
