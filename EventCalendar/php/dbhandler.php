@@ -27,10 +27,10 @@
         public function getEventsFromDb($start, $end) {
             $start = date("Y-m-d", strtotime($start));
             $end = date("Y-m-d", strtotime($end));
-            $sql = "SELECT event_id, ev.club_id, event_name, club_name, date, time, end_time, more_info, place
+            $sql = "SELECT event_id, ev.club_id, event_name, club_name, date_cur, time_cur, end_time, more_info, place
                     FROM create_event AS ev
                     JOIN club ON ev.club_id = club.club_id
-                    WHERE date >= \"$start\" AND date <= \"$end\";";
+                    WHERE date_cur >= \"$start\" AND date_cur <= \"$end\";";
             $result = $this->conn->query($sql);
             $rows = $this->getRows($result);
             return $rows;

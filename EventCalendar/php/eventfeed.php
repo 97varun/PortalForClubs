@@ -13,8 +13,8 @@
             $events = getAccessibleEvents($srn);
         }
         foreach ($rows as $row) {
-            $date     = $row["date"];
-            $time     = $row["time"];
+            $date     = $row["date_cur"];
+            $time     = $row["time_cur"];
             $end_time = $row["end_time"];
             $bg_color = $color_picker->get_background_color($row["club_id"]);
             $txt_color = $color_picker->get_text_color($bg_color);
