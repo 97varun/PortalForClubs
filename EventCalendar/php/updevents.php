@@ -4,22 +4,19 @@
     ob_start();
     ob_flush();
     flush();
-    session_start();
-    extract($_SESSION);
-    if (!isset($oldtime)) {
+    function get_filemtime($filename) {
         clearstatcache();
-        $oldtime = filemtime("updated");
+        return filemtime($filename);
     }
+    $oldtime = get_filemtime("timestamp/oldtime");
     while (1) {
-        clearstatcache();
-        $newtime = filemtime("updated");
+        $newtime = get_filemtime("timestamp/newtime");
         if ($newtime > $oldtime) {
-            echo "retry: 100\n";
+            touch("timestamp/oldtime");
+            echo "retry: 4000\n";
             echo "data: refetch\n\n";
             ob_flush();
             flush();
-            $oldtime = $newtime;
-            $_SESSION["oldtime"] = $oldtime;
             break;
         }
         sleep(3);

@@ -17,7 +17,7 @@
             $db_handler = new DatabaseHandler;
             $result = $db_handler->deleteEventFromDb($event_id);
             if ($result === TRUE) {
-                touch("updated");
+                touch("timestamp/newtime");
                 echo "deleted";
             } else {
                 echo "error deleting event";
