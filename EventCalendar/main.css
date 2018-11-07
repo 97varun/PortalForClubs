@@ -9,16 +9,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 0.5%;
+    padding: 1%;
 }
 /* removes extra border on the first row of table inside popover */
 .borderless tr:first-child td {
     border: none;
 }
-/* adjust size of close button */
-.close {
-    size: 20px;
-}
+
 /* centers the delete button */
 #del {
     width: 46%; 
@@ -32,8 +29,8 @@ body {
 }
 /* show confirmation message in bold */
 .msg {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 450;
 }
 #yes, #cancel {
     width: 50%;
@@ -46,5 +43,14 @@ body {
 }
 .popover-header {
     min-height: 45px;
-    font-size: 20px;
+    line-height: 166%;
+}
+.warning-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: rgb(238, 238, 0);
+    font-size: 25px;
+    font-weight: bold;
+    vertical-align: middle;
 }
