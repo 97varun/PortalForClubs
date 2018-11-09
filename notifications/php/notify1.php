@@ -31,7 +31,6 @@
 			{
 				$row_count=mysqli_num_rows($result);
 				// output data of each row
-				$link_address='../../events/html/event.html';
 				while($row = mysqli_fetch_assoc($result))
 				{
 					echo'<div class="col-lg-3 " id="rcorners3" >';
