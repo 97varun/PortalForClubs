@@ -66,7 +66,7 @@
 					echo str_repeat("&nbsp;", 15);
 					echo "<a href=../../events/php/edit_event.php?event_id=",urlencode($row["event_id"]),">edit</a>";
 					echo str_repeat("&nbsp;", 10);
-					echo"DELETE";
+					echo "<a href=../../events/php/delete_event.php?event_id=",urlencode($row["event_id"]),">delete</a>";
 					echo"<br>";
 					echo"</div>";
 				}
