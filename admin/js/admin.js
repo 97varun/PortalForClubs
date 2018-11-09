@@ -25,3 +25,8 @@ function sponsor()
 {
 	window.location="";
 }
+
+function edit_event()
+{
+	window.location="../../notifications/php/notify1.php";
+}
