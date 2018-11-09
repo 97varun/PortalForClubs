@@ -11,3 +11,7 @@ $(function(){
 		$(this).css("font-weight"," bold");
     });
 });
+function edit_event()
+{
+	window.location="../../events/html/event.html";
+}
