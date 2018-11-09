@@ -19,11 +19,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 		$sql="UPDATE create_event SET date_cur='$date_cur',time_cur='$time_cur',end_time='$end_time',event_name='$event_name',place='$place',more_info='$more_info',invite='$invite' where event_id='$event_id'";
 
-		echo "<script>setTimeout(\"location.href = '../../admin/html/admin.html';\",500);</script>";
-		print '<script>alert("Successfully Updated! ");</script>';
+		echo "<script>setTimeout(\"location.href = '../../notifications/php/notify1.php';\",500);</script>";
 		if (mysqli_query($link, $sql))
 		{
-			echo "Record updated successfully";
+			//echo "Record updated successfully";
 		}
 		else 
 		{
