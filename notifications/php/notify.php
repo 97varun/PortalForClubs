@@ -19,9 +19,11 @@
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			}	
-			$a="SELECT * from create_event";
-			$m="DELETE from create_event WHERE date(date_cur)<CURDATE()";//Delete past events
+			$m="INSERT into past_event SELECT * from create_event WHERE date(date_cur)<CURDATE()";//Delete past events
 			$result=mysqli_query($link,$m);
+			$n="DELETE FROM create_event WHERE date(date_cur)<CURDATE()";
+			$result=mysqli_query($link,$n);	
+			$a="SELECT * from create_event";		
 			$result=mysqli_query($link,$a); 	
 			echo'<hr />';
 			echo'<div class="container-fluid">';
