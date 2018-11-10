@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2018 at 05:47 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: Nov 10, 2018 at 02:59 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -107,14 +109,34 @@ CREATE TABLE `create_event` (
 --
 
 INSERT INTO `create_event` (`event_id`, `club_id`, `date_cur`, `time_cur`, `end_time`, `event_name`, `place`, `more_info`, `invite`) VALUES
-(8, '1', '2018-10-11', '16:35:00', '16:45:00', 'xxxxxxxxx', 'xxxxxxx', 'xx', 'xxxxxxxxxxxx'),
-(9, '1', '2018-10-16', '14:34:00', '15:50:00', 'Singing competiton', 'OAT', 'sd', 'dsf'),
-(10, '2', '2018-10-27', '14:34:00', '14:34:00', 'Drawing', 'Panini', 'sdf', 'dfsd'),
-(11, '2', '2018-10-26', '03:45:00', '14:34:00', 'Dance', 'mrd', 'dsfdf', 'fff'),
-(12, '3', '2018-10-27', '19:00:00', '19:30:00', 'DJ', 'OAT', 'xyz', 'All college students'),
 (19, '2', '2018-12-14', '19:45:00', '23:45:00', 'Halloween', 'Whitefield', 'With costumes', 'All college students'),
 (20, '3', '2018-12-29', '04:56:00', '04:56:00', 'hhhrty', 'rhrt', 'rty', '54t54');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `past_event`
+--
+
+CREATE TABLE `past_event` (
+  `event_id` int(11) NOT NULL,
+  `club_id` varchar(20) NOT NULL,
+  `date_cur` date NOT NULL,
+  `time_cur` time NOT NULL,
+  `end_time` time NOT NULL,
+  `event_name` varchar(20) NOT NULL,
+  `place` varchar(100) NOT NULL,
+  `more_info` text NOT NULL,
+  `invite` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `past_event`
+--
+
+INSERT INTO `past_event` (`event_id`, `club_id`, `date_cur`, `time_cur`, `end_time`, `event_name`, `place`, `more_info`, `invite`) VALUES
+(21, '1', '2018-11-09', '04:33:00', '06:08:00', 'oooooo', 'OOOOOO', 'OOOOOO', 'OOOOOO'),
+(22, '1', '2018-11-07', '05:06:00', '08:07:00', 'fgh', 'gfhj', 'hjki', 'tutyu');
 
 -- --------------------------------------------------------
 
@@ -168,8 +190,6 @@ ALTER TABLE `club_member`
   ADD PRIMARY KEY (`Club_ID`,`Member_USN`),
   ADD KEY `Member_USN` (`Member_USN`);
 
-
-
 --
 -- Indexes for table `create_event`
 --
@@ -177,6 +197,12 @@ ALTER TABLE `create_event`
   ADD PRIMARY KEY (`event_id`),
   ADD KEY `club_id` (`club_id`);
 
+--
+-- Indexes for table `past_event`
+--
+ALTER TABLE `past_event`
+  ADD PRIMARY KEY (`event_id`),
+  ADD KEY `club_id` (`club_id`) USING BTREE;
 
 --
 -- Indexes for table `students`
@@ -192,7 +218,14 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `create_event`
 --
 ALTER TABLE `create_event`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `past_event`
+--
+ALTER TABLE `past_event`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
 -- Constraints for dumped tables
 --
@@ -211,12 +244,18 @@ ALTER TABLE `club_member`
   ADD CONSTRAINT `club_member_ibfk_1` FOREIGN KEY (`Club_ID`) REFERENCES `club` (`Club_ID`) ON DELETE CASCADE,
   ADD CONSTRAINT `club_member_ibfk_2` FOREIGN KEY (`Member_USN`) REFERENCES `students` (`Student_USN`) ON DELETE CASCADE;
 
-
 --
 -- Constraints for table `create_event`
 --
 ALTER TABLE `create_event`
   ADD CONSTRAINT `create_event_ibfk_1` FOREIGN KEY (`club_id`) REFERENCES `club` (`Club_ID`);
+
+--
+-- Constraints for table `past_event`
+--
+ALTER TABLE `past_event`
+  ADD CONSTRAINT `past_event_ibfk_1` FOREIGN KEY (`club_id`) REFERENCES `club` (`Club_ID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
