@@ -35,10 +35,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$sql="INSERT INTO create_event (club_id,date_cur,time_cur,end_time,event_name,place,more_info,invite) VALUES ('$club_id','$date_cur','$time_cur','$end_time','$event_name','$place','$more_info','$invite')"; //Inserts the value to table registration
 		echo "<script>setTimeout(\"location.href = '../../admin/html/admin.html';\",500);</script>";
-		print '<script>alert("Successfully Registered! ");</script>';
+		//print '<script>alert("Successfully Registered! ");</script>';
 		if (mysqli_query($link, $sql))
 		{
-			echo "New record created successfully";
+			//echo "New record created successfully";
 		}
 		else 
 		{
