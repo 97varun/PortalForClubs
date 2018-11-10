@@ -21,9 +21,11 @@
 			{
 				die("Connection failed: " . mysqli_connect_error());
 			}	
-			$a="SELECT * from create_event WHERE club_id IN (SELECT admin.club_id FROM admin,create_event where admin.Club_id=create_event.club_id and admin.Admin_USN='$srn')";
-			$m="DELETE from create_event WHERE date(date_cur)<CURDATE()";//Delete past events
+			$m="INSERT into past_event SELECT * from create_event WHERE date(date_cur)<CURDATE()";//Delete past events
 			$result=mysqli_query($link,$m);
+			$n="DELETE FROM create_event WHERE date(date_cur)<CURDATE()";
+			$result=mysqli_query($link,$n);	
+			$a="SELECT * from create_event WHERE club_id IN (SELECT admin.club_id FROM admin,create_event where admin.Club_id=create_event.club_id and admin.Admin_USN='$srn')";
 			$result=mysqli_query($link,$a); 	
 			echo'<hr />';
 			echo'<div class="container-fluid">';
