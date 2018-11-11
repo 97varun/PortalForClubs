@@ -59,6 +59,7 @@
 					echo "<td>$r[0]</td>";
 					echo "<td>$r[2]</td>";
 					echo "<td>$r[3]</td>";
+					echo "<td><a style='text-decoration:none;' href=../php/delete.php?usntodelete=",urlencode($r[1]),">Remove</a></td>";
 				echo "</tr>";
 				}
 			echo "</tbody>";
