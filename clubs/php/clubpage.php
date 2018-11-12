@@ -79,11 +79,25 @@
 								
 							</header>
 							</br>
-							<h1> Upcoming Events </h1>
-							<section class="tiles">
-								
+						
 							<?php
 							
+							$sql="SELECT Club_ID from clubjoinform where Club_ID='$clubId'";
+							$ret=mysqli_query($link,$sql);
+							if (mysqli_num_rows($ret) > 0)
+							{
+								echo "<h2> Like what this club does?<a style='text-decoration:none;color:blue' href='../Registration/html/club_registration.html'> Join </a> the club </h2>";
+								echo "</br>";
+							}
+							
+							?>
+							
+							<h1> Upcoming Events of <?php echo $clubname ; ?></h1>
+							
+							<section class="tiles">
+								
+							<?php				
+														
 								
 								$m="INSERT into past_event SELECT * from create_event WHERE date(date_cur)<CURDATE()";//Delete past events
 								$result=mysqli_query($link,$m);
