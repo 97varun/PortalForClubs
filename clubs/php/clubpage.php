@@ -81,51 +81,77 @@
 							</br>
 							<h1> Upcoming Events </h1>
 							<section class="tiles">
-	
-								<article class="style1">
-									<span class="image">
-										<img src="../images/pic01.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Upcoming event 1</h2>
-										<div class="content">
-											<p>A summary of the event.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="../images/pic02.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Upcoming Event 2</h2>
-										<div class="content">
-											<p>Summary of event 2</p>
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="../images/pic03.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Upcoming Event 3</h2>
-										<div class="content">
-											<p>Summary of event 3</p>
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="../images/pic04.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Upcoming Event 4</h2>
-										<div class="content">
-											<p>Summary of event 4</p>
-										</div>
-									</a>
-								</article>
+								
+							<?php
+							
+								
+								$m="INSERT into past_event SELECT * from create_event WHERE date(date_cur)<CURDATE()";//Delete past events
+								$result=mysqli_query($link,$m);
+								
+								$n="DELETE FROM create_event WHERE date(date_cur)<CURDATE()";
+								$result=mysqli_query($link,$n);	
+								
+								$a="SELECT * from create_event WHERE club_id='$clubId'";
+								$result=mysqli_query($link,$a); 
+								
+								if (mysqli_num_rows($result) > 0)
+								{
+									$row_count=mysqli_num_rows($result);
+									// output data of each row
+									$i=0;
+									while($row = mysqli_fetch_assoc($result))
+									{
+										$i++;
+										
+										echo "<article class='style".$i."'>" ;
+											echo "<span class='image'>";
+												echo "<img src='../images/pic0".$i.".jpg'/>";
+											echo "</span>";
+											echo "<a href=''>";
+												echo "<h2>". $row['event_name']."</h2>";
+												echo "<div class='content'>";
+													echo "<p>";
+													echo'<span >';
+													echo"<br>";
+													$newDate = date("d D F", strtotime($row["date_cur"]));
+													echo $newDate;
+													echo"</span>";
+													echo'<span >';
+													echo"<br>";
+													echo date("g:i a", strtotime($row["time_cur"]));				
+													echo'</span>';
+													echo"</br>";
+													echo"</br>";
+													echo' <img src="../images/location_icon.png" alt="Fjords" height="12" width="12">';
+													echo' ';
+													echo $row["place"];
+													echo"<br>";
+													echo' <img src="../images/more_info.png" alt="Fjords" height="12" width="12">';
+													echo' ';
+													echo $row["more_info"];
+													echo"<br>";
+													echo' <img src="../images/invite.png" alt="Fjords" height="12" width="12">';
+													echo' ';
+													echo $row["invite"];
+													echo"<br>";
+													echo str_repeat("&nbsp;", 15);
+													echo "</p>";
+												echo "</div>";
+											echo "</a>";
+										echo "</article>";
+										
+										if($i>=6)
+											$i=0;
+									}
+								}
+								
+								else
+								{
+									
+									echo "<p> No events </p>";
+								}
+									
+							?>
 								
 							</section>
 						</div>
