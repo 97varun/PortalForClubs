@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="../js/admin.js"> </script>
 </head>
-<body onload="check()">
+<body  onload="check()"  >
 <div class="background-image"></div>
 <div class="content">
   
@@ -37,20 +37,25 @@
 						
 						<a href="../../events/html/event.html" class="button">Create Event</a>
 						<a href="../php/clubMembers.php" class="button">Club members</a>
-						<a href="" class="button">Create registration form</a>
+					
+						<button  onclick="createjoinform()" class="button">Create joining form</button>
 						</br>
+						<button onclick="removejoinform()" class="button">Remove joining form</button>
+						
 						<a href="" class="button">Room slot</a>
-						<a href="" class="button">Sponsors</a>
+						<a href="../../sponsor/sp.html" class="button">Sponsors</a>
 						</br>
 						<a href="../../EventCalendar/main.html" class="button">Calendar</a>
 						<a href="../../notifications/php/notify1.php" class="button">Edit Event</a>
+						<a href="../php/registered.php" class="button">Registered Members</a>
 								
 						
-						
 						<hr />
+						
+					<div id="hdiv" style="visibility:hidden"></div>
+					
 					</section>
-
-
+					
 			</div>
 
 
