@@ -1,8 +1,4 @@
 xhr = new XMLHttpRequest();
-
-
-
-
 function check(){
 	xhr.onreadystatechange = userUpdate;
 	xhr.open("POST", "../php/admin.php", true);
