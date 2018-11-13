@@ -1,11 +1,11 @@
 <?php
-    function getAccessibleEvents($srn) {
-        $db_handler = new DatabaseHandler;
-        $rows = $db_handler->getAccessibleEventsFromDb($srn);
-        $events = array();
-        foreach ($rows as $row) {
-            $events[] = $row["event_id"];
+    if ($_SERVER['REQUEST_METHOD'] == "GET") {
+        session_start();
+        extract($_SESSION);
+        if ($role == "Admin") {
+            echo "admin";
+        } else {
+            echo "no access";
         }
-        return $events;
     }
 ?>

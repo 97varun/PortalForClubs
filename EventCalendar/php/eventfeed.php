@@ -1,9 +1,19 @@
 <?php
     require "dbhandler.php";
     require "colorpicker.php";
-    require "chkaccess.php";
+    
     session_start();
     extract($_SESSION);
+
+    function getAccessibleEvents($srn) {
+        $db_handler = new DatabaseHandler;
+        $rows = $db_handler->getAccessibleEventsFromDb($srn);
+        $events = array();
+        foreach ($rows as $row) {
+            $events[] = $row["event_id"];
+        }
+        return $events;
+    }
     function format_data($rows) {
         global $srn;
         $resp = array();

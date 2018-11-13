@@ -2,12 +2,6 @@ $(document).ready(function() {
     // initialize full calendar
     $('#calendar').fullCalendar({
         themeSystem: 'bootstrap4',
-        customButtons: {
-            Add: {
-                text: 'Create event',
-                click: addEvent
-            }
-        },
         header: {
             left: 'month,agendaWeek,agendaDay today',
             center: 'prev title next',
@@ -17,7 +11,6 @@ $(document).ready(function() {
         fixedWeekCount: false,
         selectable: true,
         eventLimit: true,
-        eventOrder: "-title",
         // events coming from json feed
         eventSources: [
             {
@@ -27,7 +20,7 @@ $(document).ready(function() {
         eventClick: eventClick
     });
 
-    // on event add button click
+    // create event button click
     function addEvent() {
         window.open("../events/html/event.html", "_self");
     }
@@ -63,8 +56,13 @@ $(document).ready(function() {
             content.find('#desc').parent().css("display", "none");
         }
         content.find('#venue').html(calEvent.venue);
-        content.find('#del').css("display", calEvent.showDelete ? "inline-block" : "none");
-        
+        content.find('.btn-group').css("display", calEvent.showDelete ? "inline-flex" : "none");
+
+        // edit button
+        $('body').on('click', '#edit', function() {
+            window.open("../events/php/edit_event.php?event_id=" + calEvent.id, "_self");
+        });
+
         // create popover and show
         $(p).popover({
             html: true,
@@ -137,7 +135,36 @@ $(document).ready(function() {
 
     // refetch events if someone else updates events
     var eventSource = new EventSource('php/updevents.php');
-    eventSource.onmessage = function(e) {
+    eventSource.onmessage = refetch;
+
+    toggleCreateEventBtn();
+    $(window).focus(toggleCreateEventBtn);
+    $(window).focus(refetch);
+
+    // refetches events
+    function refetch() {
         $('#calendar').fullCalendar('refetchEvents');
+    }
+
+    // show/hide create event button
+    function toggleCreateEventBtn() {
+        $.ajax({
+            url: "php/chkaccess.php",
+            success: function(resp) {
+                if (resp === "admin") {
+                    $('#calendar').fullCalendar('option', 'customButtons', {
+                        Add: {
+                            text: 'Create event',
+                            click: addEvent
+                        }
+                    });
+                } else {
+                    $('#calendar').fullCalendar('option', 'customButtons', {});
+                }
+            },
+            error: function(error) {
+                alert("error: " + error);
+            }
+        });
     }
 }); 
