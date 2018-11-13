@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Student Home Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		
+	</head>
+	<body  onload="check()">
+	
+	<div class="background-image"></div>
+	<div class="content">
+		<div class="navbar">			
+			<a href="../../php/clubpage.php" style="position:scroll" > Home</a>
+			<a href="../../php/logout.php" style="float:right;position:scroll" > Logout</a>
+		</div>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<p class="avatar"><img src="../images/avatar.jpg" alt="" /></p>		
+							
+							<h1 id='name'></h1>
+						</header>
+						
+						<hr />
+						<div id="extradiv" style="visibility:hidden"></div>	
+						<div id="formdisplay" style="visibility:hidden">
+					<form action="../php/submitregistrationform.php" method="post">
+						<div class="agile-profile">
+							<p>Branch</p>
+							<select name="branch" required="">
+							<option value=""  disabled hidden selected>Select</option>
+							<option>CSE</option>
+							<option>ECE</option>
+							<option>EEE</option>
+							<option>ME</option>
+							<option>BT</option>
+							</select>
+						</div>
+						<div class="agile-sem">
+							<p>Semester</p>
+							<select name="sem" required="">
+							<option value="" disabled hidden selected>Select</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							</select>
+						</div>
+						<div class="clear"></div>
+						<div class="agile-password">
+							<p>Why do you want to join this club?</p>
+							<input type="text" name="club" placeholder="type here.." required="" style="height:100px; width:650px" >
+						</div>
+						<div class="clear"></div>
+						</br>
+						<div class="agile-submit">
+							<input type="submit" value="register">
+						</div>
+			</form>
+			<hr />
+			</div>
+					
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+					</footer>
+
+			</div>
+</div>
+		<!-- Scripts -->
+			<script src="../js/club_registration.js"> </script>
+	</body>
+</html>

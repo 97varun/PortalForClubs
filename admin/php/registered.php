@@ -9,7 +9,9 @@
 	$row=mysqli_fetch_row($ret);
 	$clubID=$row[0];
 	
-	$sql="SELECT Student_name,Student_USN,Student_phoneNo,Student_email FROM students where Student_USN in (SELECT Member_USN FROM club_member where Club_ID='$clubID');";  
+	$sql="SELECT *Student_name,Student_USN,Student_phoneNo,Student_email FROM students where Student_USN in (SELECT Member_USN FROM club_member where Club_ID='$clubID');";  
+	
+	$sql="SELECT `Member_USN`, `Sem`, `Branch`, `ReasonToJoin` FROM `clubregistration` WHERE Club_ID='$clubID'";
 	
 	$ret=mysqli_query($link,$sql);
 	$rows=mysqli_fetch_all($ret);
@@ -22,7 +24,9 @@
 	
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-	 
+	 <style>
+	 a:hover{color:red;}
+	 </style>
 	<body style='text-align: center;'>
 	<div class='background-image'></div>
 	<div class='content'>
@@ -47,6 +51,9 @@
 					echo "<th>Name</th>";
 					echo "<th>Phone No.</th>";
 					echo "<th>Email</th>";
+					echo "<th>Branch</th>";
+					echo "<th>Sem</th>";
+					echo "<th>ReasonToJoin</th>";
 				   
 				echo "</tr>";
 			echo "</thead>";
@@ -54,12 +61,20 @@
 		
 				foreach($rows as $r)
 				{
+				$sql="SELECT Student_name,Student_phoneNo,Student_email FROM students where Student_USN='$r[0]'";
+				$ret=mysqli_query($link,$sql);
+				$x=mysqli_fetch_row($ret);
+				
 				echo "<tr>";
-					echo "<td>$r[1]</td>";
 					echo "<td>$r[0]</td>";
+					echo "<td>$x[0]</td>";
+					echo "<td>$x[1]</td>";
+					echo "<td>$x[2]</td>";
 					echo "<td>$r[2]</td>";
+					echo "<td>$r[1]</td>";
 					echo "<td>$r[3]</td>";
-					echo "<td><a style='text-decoration:none;' href=../php/deletemember.php?usntodelete=",urlencode($r[1]),">Remove</a></td>";
+					echo "<td><a style='text-decoration:none;' href=../php/deleteregistration.php?usntodelete=",urlencode($r[0]),">Remove</a></td>";
+					echo "<td><a style='text-decoration:none;' href=../php/addregistration.php?usntoadd=",urlencode($r[0]),">Add</a></td>";
 				echo "</tr>";
 				}
 			echo "</tbody>";
@@ -71,7 +86,7 @@
 	
 	else
 	{
-		echo "No Members";
+		echo "<p style='color:red;font-size:50px'>No Registrations</p>";
 	}
 	
 	
