@@ -52,29 +52,35 @@
                     <td id="venue"></td>
                 </tr>
             </table>
-            <!-- delete button -->
-            <button id="del" class="btn btn-outline-danger btn-sm">
-                <span class="fa fa-trash fa-fw"></span>Delete
-            </button> 
+            <div class="btn-group btn-group-justified">
+                <!-- edit button -->
+                <button id="edit" class="btn btn-outline-secondary btn-sm">
+                    <span class="fa fa-pencil fa-fw"></span>Edit
+                </button>
+                <!-- delete button -->
+                <button id="del" class="btn btn-outline-danger btn-sm">
+                    <span class="fa fa-trash fa-fw"></span>Delete
+                </button> 
+            </div>
         </div>
         <!-- delete confirmation dialog box -->
         <div id="cfm-dia">
             <table class="table borderless">
                 <tr>
                     <td class="align-middle">
-                        <div class="warning-icon text-center">!</div>
+                        <img src="img/warning.png" alt="warning" height="18%">
                     </td>
                     <td class="msg">
                         You CANNOT UNDO this change. Are you sure you want to DELETE this event?
                     </td>
                 </tr>
             </table>
-            <div class="cfm-btn-grp btn-group btn-group-justified">
-                <button id="yes" class="btn btn-outline-danger btn-sm">
-                    Delete
-                </button> 
+            <div class="btn-group btn-group-justified">
                 <button id="cancel" class="btn btn-outline-secondary btn-sm">
                     Cancel
+                </button> 
+                <button id="yes" class="btn btn-outline-danger btn-sm">
+                    Delete
                 </button> 
             </div>
         </div>
