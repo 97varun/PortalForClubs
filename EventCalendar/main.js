@@ -138,12 +138,19 @@ $(document).ready(function() {
     eventSource.onmessage = refetch;
 
     toggleCreateEventBtn();
-    $(window).focus(toggleCreateEventBtn);
-    $(window).focus(refetch);
+    $(window).focus(refresh);
 
     // refetches events
     function refetch() {
         $('#calendar').fullCalendar('refetchEvents');
+    }
+
+    // refresh page
+    function refresh() {
+        $('#calendar').fadeToggle("fast");
+        toggleCreateEventBtn();
+        refetch();
+        $('#calendar').fadeToggle("fast");
     }
 
     // show/hide create event button
