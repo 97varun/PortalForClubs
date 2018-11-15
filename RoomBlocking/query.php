@@ -31,7 +31,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT DISTINCT RoomId FROM bookings WHERE ".'\''.$Frd.'\''." not in(From_D,To_d) AND ".'\''.$Td.'\''." not in(From_D,To_d)";
+$sql ="SELECT RoomId FROM rooms r WHERE NOT EXISTS (SELECT * FROM bookings b WHERE r.roomid = b.roomid AND (".'\''.$Frd.'\''." BETWEEN b.from_d AND b.to_d OR ".'\''.$Td.'\''." BETWEEN b.from_d AND b.to_d))";
 //echo $sql;
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
