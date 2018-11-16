@@ -1,9 +1,9 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
 
-	a:hover{text-color:blue;}
 
-	html, body, div,  applet, object,
+
+	html, body, div, applet, object,
 	iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 	pre, a, abbr, acronym, address, big, cite,
 	code, del, dfn, em, img, ins, kbd, q, s, samp,
@@ -21,7 +21,10 @@
 		font: inherit;
 		vertical-align: baseline;
 	}
-
+	span{
+		
+		font-family:Arial;font-size:22px;color:#F5F5F5;
+	}
 	article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section {
 		display: block;
@@ -105,15 +108,11 @@
 
 	body {
 		height: 100%;
-		background-color: #ffffff;
-		background-image: url(""), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-image: url(""), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-image: url(""), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-image: url(""), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-repeat: repeat,			no-repeat,			no-repeat;
-		background-size: 100px 100px, cover,				cover;
-		background-position: top left,		center center,		bottom center;
-		background-attachment: fixed,			fixed,				fixed;
+		/*change*/
+		background-image:url('../images/pic1.jpg');
+		
+            background-repeat: no-repeat;
+		
 	}
 
 		body:after {
@@ -126,18 +125,8 @@
 			height: inherit;
 			opacity: 0;
 			z-index: 1;
-			background-color: #ffffff;
-			background-image: url(""), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url(""), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url(""), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url(""), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-repeat: repeat,			no-repeat;
-			background-size: 100px 100px, cover;
-			background-position: top left,		center center;
-			-moz-transition: opacity 1.75s ease-out;
-			-webkit-transition: opacity 1.75s ease-out;
-			-ms-transition: opacity 1.75s ease-out;
-			transition: opacity 1.75s ease-out;
+			background-image:url('../images/1.jpg');
+			
 		}
 
 		body.is-preload:after {
@@ -178,8 +167,10 @@
 		-webkit-transition: color 0.2s ease, border-color 0.2s ease;
 		-ms-transition: color 0.2s ease, border-color 0.2s ease;
 		transition: color 0.2s ease, border-color 0.2s ease;
-		color: inherit;
+		color:#F5F5F5;
 		text-decoration: none;
+		font-family:Arial;
+		font-size:22px;
 	}
 
 		a:before {
@@ -190,7 +181,8 @@
 		}
 
 		a:hover {
-			color: #ff7496;
+			color: #FFE4B5;
+			
 		}
 
 	strong, b {
@@ -206,9 +198,10 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #313f47;
+		color: whitehsla(0, 100%, 30%, 0.3);
 		line-height: 1.5;
 		margin: 0 0 0.75em 0;
+		font-family:Arial;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -264,8 +257,9 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 1px #c8cccf;
+		border-bottom: solid 1px white;
 		margin: 3em 0;
+		color:white;
 	}
 
 /* Form */
@@ -342,7 +336,12 @@
 
 		}
 
-	
+	label {
+		color: #313f47;
+		display: block;
+		font-size: 0.9em;
+		margin: 0 0 0.75em 0;
+	}
 
 	input[type="text"],
 	input[type="password"],
@@ -361,7 +360,7 @@
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
-		width: 50%;
+		width: 100%;
 	}
 
 		input[type="text"]:invalid,
@@ -411,6 +410,7 @@
 	select {
 		height: 2.75em;
 		
+		color:black;
 	}
 
 	textarea {
@@ -448,7 +448,7 @@
 			input[type="radio"] + label:before {
 				-moz-osx-font-smoothing: grayscale;
 				-webkit-font-smoothing: antialiased;
-				font-family: FontAwesome;
+				font-family: Arial;
 				font-style: normal;
 				font-weight: normal;
 				text-transform: none !important;
@@ -519,7 +519,7 @@
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: Arial;
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
@@ -733,7 +733,7 @@
 				ul.icons li a:before {
 					-moz-osx-font-smoothing: grayscale;
 					-webkit-font-smoothing: antialiased;
-					font-family: FontAwesome;
+					font-family: Arial;
 					font-style: normal;
 					font-weight: normal;
 					text-transform: none !important;
@@ -794,11 +794,14 @@
 		background-color: transparent;
 		border-radius: 4px;
 		border: solid 1px #c8cccf;
-		color: #414f57 !important;
+		color: #A52A2A !important;
 		cursor: pointer;
-		text-align: left;
+		text-align: center;
+		font-family:Arial;
+		font-size:20px;
 		text-decoration: none;
 		white-space: nowrap;
+		background-color:#FFF8DC;
 	}
 
 		input[type="submit"]:hover,
@@ -806,8 +809,9 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			border-color: #ff7496;
+			border-color: #FFDEAD;
 			color: #ff7496 !important;
+			background-color:#FFDEAD;
 		}
 
 		input[type="submit"].icon,
@@ -879,20 +883,24 @@
 		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
 		transition: opacity 1s ease, transform 1s ease;
 		padding: 4.5em 3em 3em 3em ;
-		background: #ffffff;
+		/*change*/
+		background-color: rgba(0,0,0,0.6);color:white;
+		background-size:100% 100%;
+            background-repeat: no-repeat;
 		border-radius: 4px;
 		cursor: default;
-		max-width: 100%;
-		opacity: 0.95;
+		
+	
 		position: relative;
 		text-align: center;
-		width: 50em;
+		width: 45%;
 	}
 
 		#main .avatar {
 			position: relative;
 			display: block;
 			margin-bottom: 1.5em;
+			
 		}
 
 			#main .avatar img {
@@ -911,9 +919,9 @@
 				top: 50%;
 				left: -3em;
 				width: calc(100% + 6em);
-				
+				height:50%
 				z-index: -1;
-				background: #c8cccf;
+			
 			}
 
 		@media screen and (max-width: 480px) {
@@ -921,11 +929,13 @@
 			#main {
 				padding: 4em 2em 2.5em 2em ;
 				width: 100%;
+				
 			}
 
 				#main .avatar:before {
 					left: -2em;
 					width: calc(100% + 4em);
+					
 				}
 
 		}
@@ -936,6 +946,7 @@
 			-ms-transform: rotateX(15deg);
 			transform: rotateX(15deg);
 			opacity: 0;
+			
 		}
 
 /* Footer */
@@ -995,9 +1006,10 @@
 		-ms-perspective: 1000px;
 		perspective: 1000px;
 		position: relative;
-		min-height: 100%;
+		height:50%;
 		padding: 1.5em;
 		z-index: 2;
+		
 	}
 
 		#wrapper > * {
