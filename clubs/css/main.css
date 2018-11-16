@@ -99,7 +99,10 @@ input, select, textarea {
 	}
 
 	body {
-		background: #ffffff;
+		/*change*/
+		background-image:url('../images/pic2.jpg'); 
+		background-size:100% 100%;
+            background-repeat: no-repeat;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2949,6 +2952,8 @@ input, select, textarea {
 		-ms-transition: opacity 0.45s ease;
 		transition: opacity 0.45s ease;
 		opacity: 1;
+		/*change*/
+		color:black;font-family:Arial;
 	}
 
 	#menu {
