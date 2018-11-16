@@ -3,7 +3,7 @@
 
 
 
-	html, body, div, span, applet, object,
+	html, body, div, applet, object,
 	iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 	pre, a, abbr, acronym, address, big, cite,
 	code, del, dfn, em, img, ins, kbd, q, s, samp,
@@ -21,7 +21,10 @@
 		font: inherit;
 		vertical-align: baseline;
 	}
-
+	span{
+		
+		font-family:Arial;font-size:22px;color:#F5F5F5;
+	}
 	article, aside, details, figcaption, figure,
 	footer, header, hgroup, menu, nav, section {
 		display: block;
@@ -104,16 +107,12 @@
 	}
 
 	body {
-		height: 100%;
-		background-color: #ffffff;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-repeat: repeat,			no-repeat,			no-repeat;
-		background-size: 100px 100px, cover,				cover;
-		background-position: top left,		center center,		bottom center;
-		background-attachment: fixed,			fixed,				fixed;
+		/*change*/
+		background-image:url('../images/pic1.jpg');
+		background-size: cover;
+		
+            background-repeat: no-repeat;
+		
 	}
 
 		body:after {
@@ -126,18 +125,8 @@
 			height: inherit;
 			opacity: 0;
 			z-index: 1;
-			background-color: #ffffff;
-			background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-repeat: repeat,			no-repeat;
-			background-size: 100px 100px, cover;
-			background-position: top left,		center center;
-			-moz-transition: opacity 1.75s ease-out;
-			-webkit-transition: opacity 1.75s ease-out;
-			-ms-transition: opacity 1.75s ease-out;
-			transition: opacity 1.75s ease-out;
+			background-image:url('../images/1.jpg');
+			
 		}
 
 		body.is-preload:after {
@@ -178,8 +167,10 @@
 		-webkit-transition: color 0.2s ease, border-color 0.2s ease;
 		-ms-transition: color 0.2s ease, border-color 0.2s ease;
 		transition: color 0.2s ease, border-color 0.2s ease;
-		color: inherit;
+		color:#F5F5F5;
 		text-decoration: none;
+		font-family:Arial;
+		font-size:22px;
 	}
 
 		a:before {
@@ -190,7 +181,8 @@
 		}
 
 		a:hover {
-			color: #ff7496;
+			color: #ffdab9;
+			
 		}
 
 	strong, b {
@@ -206,9 +198,10 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #313f47;
+		color: whitehsla(0, 100%, 30%, 0.3);
 		line-height: 1.5;
 		margin: 0 0 0.75em 0;
+		font-family:Arial;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -798,11 +791,14 @@
 		background-color: transparent;
 		border-radius: 4px;
 		border: solid 1px #c8cccf;
-		color: #414f57 !important;
+		color: #A52A2A !important;
 		cursor: pointer;
 		text-align: center;
+		font-family:Arial;
+		font-size:20px;
 		text-decoration: none;
 		white-space: nowrap;
+		background-color:#FFF8DC;
 	}
 
 		input[type="submit"]:hover,
@@ -810,8 +806,9 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			border-color: #ff7496;
+			border-color: #FFDEAD;
 			color: #ff7496 !important;
+			background-color:#FFDEAD;
 		}
 
 		input[type="submit"].icon,
@@ -883,7 +880,10 @@
 		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
 		transition: opacity 1s ease, transform 1s ease;
 		padding: 4.5em 3em 3em 3em ;
-		background: #ffffff;
+		/*change*/
+		background-color: rgba(0,0,0,0.6);color:white;
+		background-size:100% 100%;
+            background-repeat: no-repeat;
 		border-radius: 4px;
 		cursor: default;
 		max-width: 100%;
@@ -904,8 +904,8 @@
 				margin: 0 auto;
 				border-radius: 100%;
 				box-shadow: 0 0 0 1.5em #ffffff;
-				height:200px;
-				width:200px;
+				height:150px;
+				width:150px;
 			}
 
 			#main .avatar:before {
@@ -917,7 +917,7 @@
 				width: calc(100% + 6em);
 				
 				z-index: -1;
-				background: #c8cccf;
+			
 			}
 
 		@media screen and (max-width: 480px) {
