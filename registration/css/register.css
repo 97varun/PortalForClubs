@@ -1,4 +1,10 @@
-
+html { 
+  background: url(../images/pic1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 display-flex, .display-flex, .display-flex-center {
   display: flex;
   display: -webkit-flex; }
@@ -83,27 +89,12 @@ h2 {
 
 .clear {
   clear: both; }
-html {
-		height: 100%;
-	}
-
-	body {
-		height: 100%;
-		background-color: #ffffff;
-		background-image: url(""), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-image: url(""), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-image: url(""), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-image: url(""), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("");
-		background-repeat: repeat,			no-repeat,			no-repeat;
-		background-size: 100px 100px, cover,				cover;
-		background-position: top left,		center center,		bottom center;
-		background-attachment: fixed,			fixed,				fixed;
-	}
 
 .container {
   width: 660px;
   position: relative;
-  margin: 0 auto; }
+  margin: 0 auto;
+  opacity:0.90;}
 
 .display-flex {
   justify-content: space-between;
