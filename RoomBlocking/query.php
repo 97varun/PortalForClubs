@@ -14,7 +14,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "room_blocking";
+$dbname = "portal";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
