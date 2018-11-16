@@ -17,12 +17,36 @@
 <div class="background-image"></div>
 <div class="content">
 
-	<div class="navbar">
-		<a href="../../student/html/student.html" > Home</a>
-		<a href="../php/logout.php" style="float:right" > Logout</a>
-	</div>
+	<div id="wrapper">
 
-	<div  id="wrapper">
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="../../student/html/student.html"">Your Home</a></li>
+							<li><a href="generic.html">Gallery</a></li>
+							<li><a href= "../../EventCalendar/main.html"> Calendar </a></li>
+							<li><a href="../php/logout.php">Logout</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+
+	<div  id="wrapper1">
 				
 	<!-- Main -->
 		<section id="main">
@@ -61,5 +85,10 @@
 		}])
 
 	</script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/browser.min.js"></script>
+	<script src="../js/breakpoints.min.js"></script>
+	<script src="../js/util.js"></script>
+	<script src="../js/main.js"></script>
 </body>
 </html>
