@@ -61,9 +61,10 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="../html/clubNames.html">Home</a></li>
+							<li><a href="../html/clubNames.html">Club Home</a></li>
 							<li><a href="generic.html">Gallery</a></li>
 							<li><a href="../../pastevents/php/pastevent.php">Past Events</a></li>
+							<li><a href="../../EventCalendar/main.html">Calendar</a></li>
 							<li><a href="generic.html">Forum</a></li>
 							<li><a href="generic.html">Feedback</a></li>
 							<li><a href="../php/logout.php">Logout</a></li>
