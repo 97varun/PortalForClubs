@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../css/main.css" />
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<section id="main">
+			<h1>Create Event</h1>
+			<hr />
+			<form  method="POST" action="../php/event_form.php">
+				Date<span>*</span><input type="date" name="date_cur"></input>
+				<br><br>
+
+				Time<span>*</span><input type="time" name="time_cur"></input>
+				<br><br>
+
+				Add End Time<span>*</span><input type="time" name="end_time"></input>
+				<br><br>
+
+				What are you planning?<span>*</span><input type="text" name="fest_event_name" placeholder="Type Here..."></input>
+				<br><br>
+
+				Where?<span>*</span><input type="text" name="place"></input>
+				<br><br>
+
+				More Information?<input type="text" name="more_info"></input>
+				<br><br>
+
+				Who is invited?<input type="text" name="invite"> </input>
+				<br>
+
+				<p class="mandate">Fields marked with * are mandatory </p>
+				<input name="create" type="submit" class="button" value="Create" color="blue" />
+			</form>
+			<hr />
+		</section>
+		<footer id="footer">
+		</footer>
+	</div>
+
+<script src="../js/event_form.js"> </script>
+</body>
+</html>
