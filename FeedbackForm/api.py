@@ -45,6 +45,8 @@ def index():
    return flask.render_template('index.html')
 
 performance=[0,1]
+all_feedback=[]
+
 @app.route('/test')
 def chartTest():
   objects=['Positive','Negative']
@@ -56,7 +58,8 @@ def chartTest():
 #   plot_url = base64.b64encode(img.getvalue()).decode()
   
 #   return '<img src="data:image/png;base64,{}">'.format(plot_url)
-  return render_template('plot.html', values=values, labels=objects)
+  return render_template('plot.html', values=values, labels=objects, raw_feedback=all_feedback)
+  # return render_template('plot.html', values=values, labels=objects)
 #   return render_template('plot.html', name = 'new_plot', url ='/static/images/new_plot.png')
 
 caption=["Club is going great!!","Need to improve","You are dipping down!!"]
@@ -68,6 +71,8 @@ def make_prediction():
     # if request.method=='POST':
         # t = request.form['text']
         t=request.args.get('clubname')
+        global all_feedback
+        all_feedback = []
         global performance
         model1 =Word2Vec.load('SentimentAnalysis_Word2VecModel')
         model = joblib.load('model.pkl')
@@ -78,10 +83,14 @@ def make_prediction():
         
         pos_g=0
         neg_g=0
+        
+        for row in cursor.fetchall():
+            all_feedback.append(row[0])
+
         # part=''
-        for row in cursor.fetchall() :
-            
-            part=" ".join(row[0].split(" ")) 
+        for feedback in all_feedback:
+
+            part=" ".join(feedback.split(" "))
             # sentence.append(row[0].split(" "))
             part=part.lower()
             word_list=part.split(" ")
@@ -161,6 +170,8 @@ def make_prediction():
         
         performance[0]=pos_g
         performance[1]=neg_g
+        print('neg_g',neg_g)
+        print('pos_g',pos_g)
         if pos_g>neg_g:
             label="Positive"
         else:

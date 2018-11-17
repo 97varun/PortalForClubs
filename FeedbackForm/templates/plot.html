@@ -1,57 +1,150 @@
 <!DOCTYPE html><html lang="en"><head>   <meta charset="utf-8" />   <title> Status of the club </title>    
       <!-- import plugin script --> 
+      <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}"/>
+      <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='min.css') }}"/>
         <script src='static/Chart.min.js'></script>  
-      </head><body>
-        <h1 style="text-align:center">Status of the club</h1>
-        <!-- bar chart canvas element -->
-        <canvas id="chart" width="600" height="400"></canvas>
-        <script>
-           // bar chart data
-           var barData = {
-           labels : [{% for item in labels %}
-                          "{{item}}",
-                      {% endfor %}],
-           datasets : [
-              {
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                 data : [{% for item in values %}
-                              {{item}},
-                            {% endfor %}]
-              }
-              ]
-           }
-         
-           // get bar chart canvas
-           var mychart = document.getElementById("chart").getContext("2d");
-         
-           steps = 10
-           max = 10
-           // draw bar chart
-           new Chart(mychart).Bar(barData, {
-                scaleOverride: true,
-                scaleSteps: steps,
-                scaleStepWidth: Math.ceil(max / steps),
-                scaleStartValue: 0,
-                scaleShowVerticalLines: true,
-                scaleShowGridLines : true,
-                barShowStroke : true,
-                scaleShowLabels: true
-           });
-            (function(window, location) {
-            history.replaceState(null, document.title, location.pathname+"#!/stealingyourhistory");
-            history.pushState(null, document.title, location.pathname);
+      </head>
+      
+      <body>
 
-            window.addEventListener("popstate", function() {
-            if(location.hash === "#!/stealingyourhistory") {
-                    history.replaceState(null, document.title, location.pathname);
-                    setTimeout(function(){
-                        location.replace("http://localhost/SE_updated/PortalForClubs-master/admin/html/admin.html");
-                        },0);
-                    }
-            }, false);
-            }(window, location));
-        </script>
+        <div class = "content">
+        <div id="wrapper">
+        <section id="main">
+
+            <h1 style="text-align:center">Feedback Dashboard</h1>
+            <br />
+
+            <h3 style="text-align:center">Feedback Summary</h3>
+            <!-- bar chart canvas element -->
+            <canvas id="chart" width="600" height="400"></canvas>
+            <script>
+            // bar chart data
+            var barData = {
+            labels : [{% for item in labels %}
+                            "{{item}}",
+                        {% endfor %}],
+            datasets : [
+                {
+                        fillColor: "rgba(151,187,205,0.2)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                    data : [{% for item in values %}
+                                {{item}},
+                                {% endfor %}]
+                }
+                ],
+                
+                feedback : [{% for item in raw_feedback %}
+                            "{{item}}",
+                        {% endfor %}]
+
+            }
+            
+            // get bar chart canvas
+            var mychart = document.getElementById("chart").getContext("2d");
+            
+            steps = 10
+            max = 10
+            // draw bar chart
+            new Chart(mychart).Bar(barData, {
+                    scaleOverride: true,
+                    scaleSteps: steps,
+                    scaleStepWidth: Math.ceil(max / steps),
+                    scaleStartValue: 0,
+                    scaleShowVerticalLines: true,
+                    scaleShowGridLines : true,
+                    barShowStroke : true,
+                    scaleShowLabels: true
+            });
+                (function(window, location) {
+                history.replaceState(null, document.title, location.pathname+"#!/stealingyourhistory");
+                history.pushState(null, document.title, location.pathname);
+
+                window.addEventListener("popstate", function() {
+                if(location.hash === "#!/stealingyourhistory") {
+                        history.replaceState(null, document.title, location.pathname);
+                        setTimeout(function(){
+                            location.replace("http://localhost/SE_updated/PortalForClubs-master/admin/html/admin.html");
+                            },0);
+                        }
+                }, false);
+                }(window, location));
         
-        </body></html>
+            </script>
+            
+            <h5>
+            <div name = "feedback" id="feedback"></div>
+            </h5>
+
+            <script>
+                var pos = barData.datasets[0].data[0];
+                var neg = barData.datasets[0].data[1];
+
+                var fb = document.getElementById("feedback");
+                console.log(fb.innerHTML);
+                console.log("Hi");
+                if(pos>neg+5){
+                    fb.innerHTML = "Your club has received great feedback!";
+                }
+                else if(pos<neg){
+                    fb.innerHTML = "Your club has received negative feedback! You need to improve.";
+                }
+                else{
+                    fb.innerHTML = "You club is doing fine, but look towards making it better";
+                }    
+            </script>
+
+            <br />
+            <h3 style="text-align:center"> Individual Feedback </h3>
+            <br />
+            
+            <div id="table" class="table-responsive"></div>
+
+            <script>
+                feedback = barData.feedback;
+                console.log(barData);
+                    var tbl = document.createElement("table");
+                    tbl.style.width = '100%';
+                    tbl.setAttribute('class', 'table');
+                    var tbdy = document.createElement('tbody');
+
+                    var th1 = document.createElement('th');
+                    th1.setAttribute('style', 'text-align:center');
+                    var th2 = document.createElement('th');
+                    th2.setAttribute('style', 'text-align:center');
+
+                    th1.appendChild(document.createTextNode("#"));
+                    th2.appendChild(document.createTextNode("Feedback"));
+                    
+                    tbdy.appendChild(th1);
+                    tbdy.appendChild(th2);
+
+                    for (var p = 0; p < feedback.length; p++) {
+                        var tr = document.createElement('tr');
+                        var td1 = document.createElement('td');
+                        td1.setAttribute('style', 'text-align:left');
+                        var td2 = document.createElement('td');
+                        td2.setAttribute('style', 'text-align:left');
+                        // td2.setAttribute('style', 'overflow:scroll')
+                        td1.appendChild(document.createTextNode(p+1));
+                        td2.appendChild(document.createTextNode(feedback[p]));
+                        tr.appendChild(td1);
+                        tr.appendChild(td2);
+                        tbdy.appendChild(tr);
+                    }
+                    tbl.appendChild(tbdy);
+                    
+                    document.getElementById("table").appendChild(tbl)
+                    // div.innerHTML = feedback[i];
+                    // console.log(feedback[i]);
+                    // document.body.appendChild(div);
+                
+            
+            </script>
+        
+        </section>
+        </div>
+        </div>    
+        
+    </body>
+</html>
