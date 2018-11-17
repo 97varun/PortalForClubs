@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Room Blocking</title>
+    <style type="text/css">
+        .form {
+            width: 30%;
+        }
+        input[type="text"], input[type="password"] {
+            width: 99%;
+            height: 1.5em;
+            padding-bottom: 5px;
+            margin-bottom: 3px;
+        }
+    </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker();
+        $( "#datepicker1" ).datepicker();
+      } );
+    </script>
+</head>
+<body>
+    <div class="form">
+        <fieldset>
+            <legend> Book Room</legend>
+            <form name="register" action="query.php" method="post">
+                <input name="Name" id="Fname"type="text" placeholder="please enter your first name" required=""><br>
+                <input name="Dp" type="text" id="datepicker">
+                <input name="Dp1" type="text" id="datepicker1">
+                <input name="Ename" id="Ename" type="text" placeholder="please enter your Event name" required=""><br>
+                <input name="submit" type="submit">
+            </form>
+        </fieldset>
+    </div>
+    <div id="response"></div>
+</body>
+</html>
