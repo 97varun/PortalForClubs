@@ -5,7 +5,7 @@
 -- Host: 127.0.0.1
 
 -- Generation Time: Nov 17, 2018 at 05:48 AM
-=======
+
 -- Generation Time: Nov 17, 2018 at 09:46 AM
 
 -- Server version: 10.1.13-MariaDB
