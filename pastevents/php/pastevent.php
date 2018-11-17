@@ -76,9 +76,9 @@
 					echo $row["invite"];
 					echo"<br>";
 					echo str_repeat("&nbsp;", 15);
-					echo "<a style='text-decoration: none;' class='button'  href='#' > FeedBack</a>";
-					echo "<br>" ;
-					echo str_repeat("&nbsp;", 10);
+					// echo "<a style='text-decoration: none;' class='button'  href='#' > FeedBack</a>";
+					// echo "<br>" ;
+					// echo str_repeat("&nbsp;", 10);
 					
 					echo"</div>";
 				}
