@@ -10,12 +10,12 @@
 		<?php
 		session_start();
 		extract($_SESSION);
-		extract($_POST);
+		extract($_GET);
 		$_SESSION['clubname']=$clubname;
 
 		$link=mysqli_connect("localhost","root","","portal");
 
-		$sql="SELECT Club_ID from club where Club_name='$clubname'";
+		$sql="SELECT Club_ID,Club_Description from club where Club_name='$clubname'";
 		$ret=mysqli_query($link,$sql);
 		$club=mysqli_fetch_row($ret);
 		$clubId=$club[0];
