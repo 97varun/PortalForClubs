@@ -199,6 +199,16 @@ INSERT INTO `students` (`Student_name`, `Student_USN`, `Student_password`, `Stud
 ('Student4', '7', 'abc', 98568, 'student4@gmail.com'),
 ('Student5', '8', 'abc', 2434568, 'student5@gmail.com');
 
+
+
+
+CREATE TABLE `feedback` (
+  `rating` varchar(50) NOT NULL,
+  `comments` varchar(70) NOT NULL,
+  `srn` varchar(20) NOT NULL,
+  `email` varchar(20) DEFAULT NULL,
+  `club` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Indexes for dumped tables
 --
