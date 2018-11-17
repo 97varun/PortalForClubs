@@ -2,12 +2,36 @@
       <!-- import plugin script --> 
       <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}"/>
       <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='min.css') }}"/>
+      <link type= "text/css" rel="stylesheet" href="{{ url_for('static', filename='navigation.css') }}"/>
+        <!-- files for navigation menu-->
+<!-- <link rel="stylesheet" href="../css/navigation.css" > -->
+    <script  src="static/navigation.js"></script> 
+
+
+
+
+  
+
+
         <script src='static/Chart.min.js'></script>  
       </head>
       
       <body>
 
         <div class = "content">
+        <div class="content">
+    <!--navigation menu-->
+    <div class="container" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+        <a href="../../admin/html/admin.html">Home</a></br>
+        <a href="../../admin/php/logout.php">Logout</a>
+     
+    </div>
+        <!--end of navigation menu-->
         <div id="wrapper">
         <section id="main">
 
