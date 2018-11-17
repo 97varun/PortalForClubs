@@ -11,7 +11,7 @@
   <script src="../js/admin.js"> </script>
 </head>
 <body  onload="check()"  >
-<div class="background-image"></div>
+
 <div class="content">
   
 		<div class="navbar">
@@ -32,24 +32,32 @@
 						</header>
 						
 						
-						<hr />
-						
-						
+						<hr style="border-color:blue"/>
+						<a href="../../FeedbackForm/new.php" class="button">Check status of the club</a>
+						</br>
+						<a href="../../Fest/html/fest_form.html" class="button">Create Fest</a>
+						<a href="../../Fest/php/fest_event_page.php" class="button">Edit Fest</a>
+						<br>
 						<a href="../../events/html/event.html" class="button">Create Event</a>
-						<a href="../php/clubMembers.php" class="button">Club members</a>
-					
-						<button  onclick="createjoinform()" class="button">Create joining form</button>
-						<br/>
-						<button onclick="removejoinform()" class="button">Remove joining form</button>
-						
-						<a href="" class="button">Room slot</a>
-						<a href="../../sponsor/sp.html" class="button">Sponsors</a>
-						<br/>
-						<a href="../../EventCalendar/main.html" class="button">Calendar</a>
 						<a href="../../notifications/php/notify1.php" class="button">Edit Event</a>
+						<br>
+						
+						<a href="../php/clubMembers.php" class="button">Club members</a>
 						<a href="../php/registered.php" class="button">Registered Members</a>
-								
-						<a href="../../FeedbackForm/new.php" class="button">Check status of the club</a>						
+						<br>
+						
+						<button  onclick="createjoinform()" class="button">Create joining form</button>
+						
+						<button onclick="removejoinform()" class="button">Remove joining form</button>
+						<br>
+						
+						<a href="../../RoomBlocking/page.html" class="button">Book room slot</a>
+						<a href="../../EventCalendar/main.html" class="button">Calendar</a>
+						<a href="../../sponsor/sp.html" class="button">Sponsors</a>
+						
+					
+												
+						
 						<hr />
 						
 					<div id="hdiv" style="visibility:hidden"></div>

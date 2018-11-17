@@ -10,8 +10,8 @@ function userUpdate(){
 		var res = this.responseText;
 		b = res.split(';')
 		//console.log(b);
-		document.getElementById("name").innerHTML = "Name:"+b[0];
-		document.getElementById("usn").innerHTML = "USN:"+b[1];
+		document.getElementById("name").innerHTML = b[0];
+		document.getElementById("usn").innerHTML = b[1];
 	}
 }
 

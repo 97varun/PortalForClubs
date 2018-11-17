@@ -17,8 +17,9 @@
 
 		$sql="SELECT Club_ID from club where Club_name='$clubname'";
 		$ret=mysqli_query($link,$sql);
-		$clubId=mysqli_fetch_row($ret);
-		$clubId=$clubId[0];
+		$club=mysqli_fetch_row($ret);
+		$clubId=$club[0];
+		$clubDes=$club[1];
 		
 		$sql="SELECT Admin_USN from admin where Club_ID='$clubId'";
 		$ret=mysqli_query($link,$sql);
@@ -61,12 +62,9 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="../html/clubNames.html">Club Home</a></li>
-							<li><a href="generic.html">Gallery</a></li>
-							<li><a href="../../pastevents/php/pastevent.php">Past Events</a></li>
+							<li><a href="../html/clubNames.html">Club Home</a></li>							
 							<li><a href="../../EventCalendar/main.html">Calendar</a></li>
-							<li><a href="generic.html">Forum</a></li>
-							<li><a href="../../FeedbackForm/formpage.html">Feedback</a></li>
+							<li><a href="generic.html">Feedback</a></li>
 							<li><a href="../php/logout.php">Logout</a></li>
 						</ul>
 					</nav>
@@ -76,7 +74,7 @@
 						<div class="inner">
 							<header>
 								<h2 style="margin-bottom:10px">About Us</h2>
-								Club Description
+								<?php echo $clubDes; ?>
 								
 							</header>
 							</br>
@@ -93,7 +91,7 @@
 							
 							?>
 							
-							<h1> Upcoming Events of <?php echo $clubname ; ?></h1>
+							<h1> Upcoming Events </h1>
 							
 							<section class="tiles">
 								
@@ -167,6 +165,84 @@
 								}
 									
 							?>
+								
+							</section>
+							</br>
+							<h1> Past Events</h1>
+							
+							<section class="tiles">
+								
+							<?php				
+														
+								
+								$m="INSERT into past_event SELECT * from create_event WHERE date(date_cur)<CURDATE()";//Delete past events
+								$result=mysqli_query($link,$m);
+								
+								$n="DELETE FROM create_event WHERE date(date_cur)<CURDATE()";
+								$result=mysqli_query($link,$n);	
+								
+								$a="SELECT * from past_event WHERE club_id='$clubId'";
+								$result=mysqli_query($link,$a); 
+								
+								if (mysqli_num_rows($result) > 0)
+								{
+									$row_count=mysqli_num_rows($result);
+									// output data of each row
+									$i=7;
+									while($row = mysqli_fetch_assoc($result))
+									{
+										$i++;
+										
+										echo "<article class='style".$i."'>" ;
+											echo "<span class='image'>";
+												echo "<img src='../images/pic0".$i.".jpg'/>";
+											echo "</span>";
+											echo "<a href=''>";
+												echo "<h2>". $row['event_name']."</h2>";
+												echo "<div class='content'>";
+													echo "<p>";
+													echo'<span >';
+													echo"<br>";
+													$newDate = date("d D F", strtotime($row["date_cur"]));
+													echo $newDate;
+													echo"</span>";
+													echo'<span >';
+													echo"<br>";
+													echo date("g:i a", strtotime($row["time_cur"]));				
+													echo'</span>';
+													echo"</br>";
+													echo"</br>";
+													echo' <img src="../images/location_icon.png" alt="Fjords" height="12" width="12">';
+													echo' ';
+													echo $row["place"];
+													echo"<br>";
+													echo' <img src="../images/more_info.png" alt="Fjords" height="12" width="12">';
+													echo' ';
+													echo $row["more_info"];
+													echo"<br>";
+													echo' <img src="../images/invite.png" alt="Fjords" height="12" width="12">';
+													echo' ';
+													echo $row["invite"];
+													echo"<br>";
+													echo str_repeat("&nbsp;", 15);
+													echo "</p>";
+												echo "</div>";
+											echo "</a>";
+										echo "</article>";
+										
+										if($i>=13)
+											$i=7;
+									}
+								}
+								
+								else
+								{
+									
+									echo "<p> No events </p>";
+								}
+									
+							?>
+								
 								
 							</section>
 						</div>

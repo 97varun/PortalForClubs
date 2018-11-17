@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Nov 17, 2018 at 05:48 AM
+=======
+-- Generation Time: Nov 17, 2018 at 09:46 AM
+>>>>>>> 37c171b13494a88e3271493f2f183ebcdcc7ae87
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -183,6 +187,60 @@ INSERT INTO `create_event` (`event_id`, `club_id`, `date_cur`, `time_cur`, `end_
 (15, 'C4', '2019-02-25', '05:30:00', '09:00:00', 'Samarasa Marathon', 'Run with the soldiers of our nation to show your support as they protect our nation!', 'Student Lounge', 'Students and families.'),
 (16, 'C5', '2018-12-04', '04:00:00', '06:00:00', 'Dance Revolution', 'Think you can dance? Come show off your skills', 'MRD Auditorium', 'Students'),
 (18, 'C7', '2019-03-22', '08:30:00', '08:30:00', 'Aatmatrisha', 'PES Universitys annual Cultural Fest is being organised on the 22nd of March, 2019. With over a 100 ', 'PES University', 'Students and families');
+<<<<<<< HEAD
+=======
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `create_fest`
+--
+
+CREATE TABLE `create_fest` (
+  `fest_id` int(11) NOT NULL,
+  `club_id` varchar(20) NOT NULL,
+  `date_cur` date NOT NULL,
+  `time_cur` time NOT NULL,
+  `end_time` time NOT NULL,
+  `fest_name` varchar(20) NOT NULL,
+  `place` varchar(100) NOT NULL,
+  `more_info` text NOT NULL,
+  `invite` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `create_fest_event`
+--
+
+CREATE TABLE `create_fest_event` (
+  `fest_event_id` int(11) NOT NULL,
+  `fest_id` int(11) NOT NULL,
+  `club_id` varchar(20) NOT NULL,
+  `date_cur` date NOT NULL,
+  `time_cur` time NOT NULL,
+  `end_time` time NOT NULL,
+  `fest_event_name` varchar(20) NOT NULL,
+  `place` varchar(100) NOT NULL,
+  `more_info` text NOT NULL,
+  `invite` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `rating` varchar(50) NOT NULL,
+  `comments` varchar(70) NOT NULL,
+  `srn` varchar(20) NOT NULL,
+  `email` varchar(20) DEFAULT NULL,
+  `club` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+>>>>>>> 37c171b13494a88e3271493f2f183ebcdcc7ae87
 
 -- --------------------------------------------------------
 
@@ -255,8 +313,13 @@ INSERT INTO `students` (`Student_name`, `Student_USN`, `Student_password`, `Stud
 ('Swetha K S N', '01fb15ecs321', 'swetha', 9480860186, 'swetha@gmail.com'),
 ('Tanmay Shrivastava', '01fb15ecs322', 'tanmay', 9611568337, 'tanmay@gmail.com'),
 ('Thanikonda Kavya', '01fb15ecs326', 'kavya', 9916820606, 'kavya@gmail.com'),
+<<<<<<< HEAD
 ('Varun V', '01fb15ecs341', 'varun', 9482137612, 'varun@gmail.com')
 ,('Vinayaka S', '01fb15ecs352', 'vinayaka', 9986732351, 'vinayaka@gmail.com'),
+=======
+('Varun V', '01fb15ecs341', 'varun', 9482137612, 'varun@gmail.com'),
+('Vinayaka S', '01fb15ecs352', 'vinayaka', 9986732351, 'vinayaka@gmail.com'),
+>>>>>>> 37c171b13494a88e3271493f2f183ebcdcc7ae87
 ('Vishal Krishna Kumar P', '01fb15ecs354', 'vishal', 7259450978, 'vishal@gmail.com'),
 ('Harshitha M Gowda', '01fb15ecs360', 'harshitha', 8217687430, 'harshitha@gmail.com'),
 ('Mukund Sood', '01fb15ecs363', 'mukund', 9900314000, 'mukund@gmail.com'),
@@ -264,10 +327,17 @@ INSERT INTO `students` (`Student_name`, `Student_USN`, `Student_password`, `Stud
 ('Manoj', '01fb15eec021', '01fb15ecs021', 8232374900, 'Manoj@gmail.com'),
 ('Ramesh', '01fb15eec025', '01fb15ecs025', 8232374900, 'Ramesh@gmail.com'),
 ('Manish', '01fb15eee020', '01fb15ecs020', 8232374900, 'Manish@gmail.com'),
+<<<<<<< HEAD
 ('Rahul', '01fb15eee024', '01fb15ecs024', 8232374900, 'Rahul@gmail.com'),
 ('Ajay', '01fb15eme018', '01fb15ecs018', 8232374900, 'Ajay@gmail.com'),
 ('Mohan', '01fb15eme022', '01fb15ecs022', 8232374900, 'Mohan@gmail.com'),
 ('Rohit', '01fb15eme026', '01fb15ecs026', 8232374900, 'Rohit@gmail.com'),
+=======
+('Rahul', '01fb15eee024', '01fb15ecs024', 8232374600, 'Rahul@gmail.com'),
+('Ajay', '01fb15eme018', '01fb15ecs018', 8232374670, 'Ajay@gmail.com'),
+('Mohan', '01fb15eme022', '01fb15ecs022', 92323756900, 'Mohan@gmail.com'),
+('Rohit', '01fb15eme026', '01fb15ecs026', 8562374900, 'Rohit@gmail.com'),
+>>>>>>> 37c171b13494a88e3271493f2f183ebcdcc7ae87
 ('Vijay', '01fb15eme027', '01fb15ecs027', 8232374900, 'Vijay@gmail.com'),
 ('Vinod', '01fb15eme028', '01fb15ecs028', 8232374900, 'Vinod@gmail.com'),
 ('Amrutha', '01fb16ecs205', '01fb16ecs205', 9123422678, 'amrutha@gmail.com'),
@@ -276,6 +346,7 @@ INSERT INTO `students` (`Student_name`, `Student_USN`, `Student_password`, `Stud
 ('Srikanth', '01fb17ecs154', '01fb17ecs154', 7931404300, 'srikanth@gmail.com'),
 ('Sanjana', '01fb17ecs192', '01fb17ecs192', 8930364630, 'sanjana@gmail.com');
 
+<<<<<<< HEAD
 
 CREATE TABLE `feedback` (
   `rating` varchar(50) NOT NULL,
@@ -364,6 +435,8 @@ INSERT INTO `feedback` (`rating`, `comments`, `srn`, `email`, `club`) VALUES
 ("average", "Not too great, not too bad either", "", "", "Aatmatrisha"),
 ("bad", "Terrible", "", "", "Aatmatrisha");
 
+=======
+>>>>>>> 37c171b13494a88e3271493f2f183ebcdcc7ae87
 --
 -- Indexes for dumped tables
 --
@@ -408,6 +481,21 @@ ALTER TABLE `create_event`
   ADD KEY `create_event_ibfk_1` (`club_id`);
 
 --
+-- Indexes for table `create_fest`
+--
+ALTER TABLE `create_fest`
+  ADD PRIMARY KEY (`fest_id`),
+  ADD KEY `create_fest_ibfk_1` (`club_id`);
+
+--
+-- Indexes for table `create_fest_event`
+--
+ALTER TABLE `create_fest_event`
+  ADD PRIMARY KEY (`fest_event_id`),
+  ADD KEY `create_fest_event_ibfk_1` (`fest_id`),
+  ADD KEY `create_fest_event_ibfk_2` (`club_id`);
+
+--
 -- Indexes for table `past_event`
 --
 ALTER TABLE `past_event`
@@ -419,6 +507,20 @@ ALTER TABLE `past_event`
 ALTER TABLE `students`
   ADD PRIMARY KEY (`Student_USN`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `create_fest`
+--
+ALTER TABLE `create_fest`
+  MODIFY `fest_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `create_fest_event`
+--
+ALTER TABLE `create_fest_event`
+  MODIFY `fest_event_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -455,6 +557,19 @@ ALTER TABLE `club_member`
 --
 ALTER TABLE `create_event`
   ADD CONSTRAINT `create_event_ibfk_1` FOREIGN KEY (`club_id`) REFERENCES `club` (`Club_ID`);
+
+--
+-- Constraints for table `create_fest`
+--
+ALTER TABLE `create_fest`
+  ADD CONSTRAINT `create_fest_ibfk_1` FOREIGN KEY (`club_id`) REFERENCES `club` (`Club_ID`);
+
+--
+-- Constraints for table `create_fest_event`
+--
+ALTER TABLE `create_fest_event`
+  ADD CONSTRAINT `create_fest_event_ibfk_1` FOREIGN KEY (`fest_id`) REFERENCES `create_fest` (`fest_id`),
+  ADD CONSTRAINT `create_fest_event_ibfk_2` FOREIGN KEY (`club_id`) REFERENCES `club` (`Club_ID`);
 
 --
 -- Constraints for table `past_event`

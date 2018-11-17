@@ -6,47 +6,33 @@
 	  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/clubnames.css" >	
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="../css/font-awesome.min.css" >
+	
+	
+ 
 </head>
-
+<!-- files for navigation menu-->
+<link rel="stylesheet" href="../css/navigation.css" >
+<script  src="../js/navigation.js"></script> 
 
 <body ng-controller="MainCtrl as ctrl">
 
-<div class="background-image"></div>
+
 <div class="content">
-
-	<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
-
-							<!-- Nav -->
-								<nav>
-									<ul>
-										<li><a href="#menu">Menu</a></li>
-									</ul>
-								</nav>
-
-						</div>
-					</header>
-
-				<!-- Menu -->
-					<nav id="menu">
-						<h2>Menu</h2>
-						<ul>
-							<li><a href="../../student/html/student.html"">Your Home</a></li>
-							<li><a href="generic.html">Gallery</a></li>
-							<li><a href= "../../EventCalendar/main.html"> Calendar </a></li>
-							<li><a href="../php/logout.php">Logout</a></li>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-
-	<div  id="wrapper1">
+<!--navigation menu-->
+	<div class="container" onclick="myFunction(this)">
+	  <div class="bar1"></div>
+	  <div class="bar2"></div>
+	  <div class="bar3"></div>
+	</div>
+	<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+		<a href="../../student/html/student.html">Home</a></br>
+		<a href="../../EventCalendar/main.html">Calendar</a></br>
+		<a href="../php/logout.php">Logout</a>
+	 
+	</div>	
+<!--end of navigation menu-->
+	<div  id="wrapper">
 				
 	<!-- Main -->
 		<section id="main">
@@ -56,7 +42,7 @@
 				</header>		
 		
 				<hr />
-			<form  method="POST" action="../php/clubpage.php" >
+			<form  method="GET" action="../php/clubpage.php" >
 				<div ng-repeat="names in ctrl.clubs" >
 				<input class="button" type="submit" name="clubname" value="{{names}}" />
 				</br>
@@ -85,10 +71,6 @@
 		}])
 
 	</script>
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/browser.min.js"></script>
-	<script src="../js/breakpoints.min.js"></script>
-	<script src="../js/util.js"></script>
-	<script src="../js/main.js"></script>
+	
 </body>
 </html>

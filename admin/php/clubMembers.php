@@ -23,23 +23,36 @@
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 	 
+	<link rel="stylesheet" href="../css/navigation.css" >
+    	<script  src="../js/navigation.js"></script> 
+
+
 	<body style='text-align: center;'>
 	<div class='background-image'></div>
 	<div class='content'>
 	
-	  
-		<div class="navbar">			
-			<a href="../html/admin.html" > Home</a>
-			<a href="../php/logout.php" style="float:right" > Logout</a>
-		</div>
 	
-<?php	
+	<?php	
 	
 	if($res>0)
 	{
-		echo "<div style='margin-top:50px'>";
+		echo "<div style='margin-top:5px'>";
+		
+		?>
+		
+		<div class="container1" onclick="myFunction(this)">
+		  <div class="bar1"></div>
+		  <div class="bar2"></div>
+		  <div class="bar3"></div>
+		</div>
+		<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+			<a href="../html/admin.html">Home</a></br>
+			<a href="../php/logout.php">Logout</a></br>
+					 
+		</div>
+		<?php
 		echo "<div class='container'>";     
-		echo "<table class='table table-hover'>";
+		echo "<table class='table'id='tab' style='color:white;font-size:20px'>";
 			echo "<thead>";
 				echo "<tr>";
 				
@@ -59,7 +72,7 @@
 					echo "<td>$r[0]</td>";
 					echo "<td>$r[2]</td>";
 					echo "<td>$r[3]</td>";
-					echo "<td><a style='text-decoration:none;' href=../php/deletemember.php?usntodelete=",urlencode($r[1]),">Remove</a></td>";
+					echo "<td><a style='text-decoration:none;color:red;font-size:20px' href=../php/deletemember.php?usntodelete=",urlencode($r[1]),">Remove</a></td>";
 				echo "</tr>";
 				}
 			echo "</tbody>";
