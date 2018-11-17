@@ -1,6 +1,14 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
+html{ 
+  
+  
+  background-image: url(../images/pic1.jpg) ; 
 
+	background-size: cover;
+		background-attachment:fixed;
+            background-repeat: no-repeat;
+}
 
 
 	html, body, div, applet, object,
