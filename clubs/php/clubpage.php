@@ -64,7 +64,7 @@
 						<ul>
 							<li><a href="../html/clubNames.html">Club Home</a></li>							
 							<li><a href="../../EventCalendar/main.html">Calendar</a></li>
-							<li><a href="generic.html">Feedback</a></li>
+							<li><a href="../../FeedbackForm/formpage.html">Feedback</a></li>
 							<li><a href="../php/logout.php">Logout</a></li>
 						</ul>
 					</nav>
