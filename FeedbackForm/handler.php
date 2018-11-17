@@ -15,8 +15,8 @@ use FormGuide\Handlx\FormHandler;
 $pp = new FormHandler(); 
 
 $validator = $pp->getValidator();
-$validator->fields(['name','email'])->areRequired()->maxLength(50);
-$validator->field('email')->isEmail();
+// $validator->fields(['name','email'])->areRequired()->maxLength(50);
+// $validator->field('email')->isEmail();
 $validator->field('comments')->maxLength(6000);
 
 // $pp->sendEmailTo('srinivasshekar01@gmail.com'); // ← Your email here
@@ -26,18 +26,24 @@ $validator->field('comments')->maxLength(6000);
 $servername = "localhost";  
 $username = "root";  
 $password = "";  
-$conn = mysqli_connect ($servername , $username , $password,'feedback') or die("unable to connect to host");  
-$sql = mysqli_select_db ($conn,'feedback') or die("unable to connect to database"); 
+$conn = mysqli_connect ($servername , $username , $password,'Portal') or die("unable to connect to host");  
+$sql = mysqli_select_db ($conn,'Portal') or die("unable to connect to database"); 
 
 // mysql_query("INSERT INTO `feedback` VALUES ('Good', 'Hey', 'S','s', 'CSR3') ") or die(mysql_error());
-
-
+session_start();
+extract($_SESSION);
 extract($_POST);
+
 $rating = $_POST['rating']; 
 $comments = $_POST['comments'];
-$name = $_POST['name'];
-$email = $_POST['email'];
-$club = $_POST['club'];
+$srn = $_SESSION['srn'];
+
+$result = mysqli_query($conn,"SELECT Student_email FROM students WHERE Student_USN = '" . $_SESSION['srn'] . "'");
+$row = $result->fetch_assoc();
+
+
+$email = $row['Student_email'];
+$club = $_SESSION['clubname'];
 
 // echo "<script> '$comments' </script>";
 
@@ -45,7 +51,7 @@ $club = $_POST['club'];
 // mysql_query("INSERT INTO 'feedback' VALUES('".$_POST['rating']."','".$_POST['comments']."','".$_POST['name']."','".$_POST['email']."','".$_POST['club']."'))" ;
 
 
-mysqli_query($conn,"INSERT INTO `feedback`(rating,comments,name,email,club) VALUES ('$rating', '$comments', '$name','$email', '$club') ") or die(mysql_error());
+mysqli_query($conn,"INSERT INTO `feedback`(rating,comments,srn,email,club) VALUES ('$rating', '$comments', '$srn','$email', '$club') ") or die(mysql_error());
 
 
 echo $pp->process($_POST);

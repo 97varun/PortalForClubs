@@ -52,13 +52,13 @@ $(function()
         var rating = $("input[name='experience']:checked").val();
         // var rating = $("#rating").val();
         var comments = $("#comments").val();
-        var name = $("#name").val();
-        var email = $("#email").val();
-        var club = $("#club").val();
+        // var name = $("#name").val();
+        // var email = $("#email").val();
+        // var club = $("#club").val();
             $.ajax({
                 type: "POST",
                 url: 'handler.php',
-                data: "rating=" + rating + "&comments=" + comments + "&name=" + name + "&email="+ email+"&club="+club,
+                data: "rating=" + rating + "&comments=" + comments,
                 success: after_form_submitted,
                 dataType: 'json' 
             });        
