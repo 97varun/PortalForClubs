@@ -17,7 +17,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "portal";
+$dbname = "room_blocking";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 $name=$_POST["Name"];
@@ -35,16 +35,22 @@ $sql ="SELECT RoomId FROM rooms r WHERE NOT EXISTS (SELECT * FROM bookings b WHE
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        echo "Room: " . $row["RoomId"]." Available <br>";
-        echo '<button type="button" id='.$row["RoomId"].' onclick="Sub(event)">Book!</button><br>';
+    	echo '<link rel="stylesheet" href="main.css">';
+    	echo '<body class="login">';
+        echo "<h1>Room: " . $row["RoomId"]." Available </h1><br>";
+        echo '<button type="button" id='.$row["RoomId"].' class="btn btn-primary btn-block btn-large" onclick="Sub(event)">Book!</button><br>';
+        echo '</body>';
     }
     echo '<div id="From" style="display : none">'.'\''.$Frd.'\''.' </div>';
     echo '<div id="To" style="display : none">'.'\''.$Td.'\''.' </div>';
     echo '<div id="Name" style="display : none">'.'\''.$En.'\''.' </div>';
 } 
 else {
+	echo '<link rel="stylesheet" href="main.css">';
+    echo '<body class="login">';
     echo "<script>alert('No Results')</script><br>";
     echo '<button type="button" onclick="Ret()">Return to Booking Page</button><br>';
+    echo "</body>";
 }
 $conn->close();
 ?>
