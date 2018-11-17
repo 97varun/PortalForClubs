@@ -1,20 +1,11 @@
-.background-image {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
-  display: block;
-background-image: url('../images/1.jpg');
-  background-repeat:no-repeat;
-  height: 100%;
-
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);
+body { 
+  background: url(../../clubs/images/pic2.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
 
 .content {
   position: fixed;
