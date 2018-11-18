@@ -18,7 +18,7 @@
 		</div>
 		<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
 			<a href="../../admin/html/admin.html">Home</a></br>
-			<a href="../../notifications/php/registered_students.php">Event Registrations</a></br>
+			<!-<a href="../../notifications/php/registered_students.php">Event Registrations</a></br>-->
 			<a href="../../admin/php/logout.php">Logout</a></br>					 
 		</div>
 		<!-- --->
