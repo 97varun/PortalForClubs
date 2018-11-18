@@ -28,6 +28,8 @@
 		<!--<a href="../../Fest/html/fest_form.html" class="button">Add collaboration</a>-->
 		<?php
 			session_start();
+			extract($_GET);
+			$fest_id=$_GET['fest_id'];
 			$servername = "localhost";
 			$username1 = "root";
 			$password1 = "";
@@ -43,7 +45,7 @@
 			//$result=mysqli_query($link,$m);
 			$n="DELETE FROM create_fest_event WHERE date(date_cur)<CURDATE()";
 			$result=mysqli_query($link,$n);	
-			$a="SELECT * from create_fest_event WHERE club_id IN (SELECT admin.club_id FROM admin,create_fest_event where admin.Club_id=create_fest_event.club_id and admin.Admin_USN='$srn')";
+			$a="SELECT * from create_fest_event WHERE fest_id=$fest_id AND club_id IN (SELECT admin.club_id FROM admin,create_fest_event where admin.Club_id=create_fest_event.club_id and admin.Admin_USN='$srn')";
 			$result=mysqli_query($link,$a); 	
 			echo'<hr />';
 			echo'<div class="container-fluid">';
