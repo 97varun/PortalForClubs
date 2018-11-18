@@ -72,7 +72,7 @@ INSERT INTO `club` (`Club_name`, `Club_ID`, `Club_Description`) VALUES
 ('Samarasa', 'C4', 'The Indian Army works tirelessly to protect our borders and Mother India. They do not get to take any holidays and have no option when they are delpoyed into the field of duty. At Samarasa, we try our best to give back to the soldies that have worked so tirelessly for us. We often organise marathons, bake sales and a host of other events to raise awareness about the great job that they do. If you want to join us in our effort to give back the small amount that we can to them, please register as soon as possible.'),
 ('Pulse', 'C5', 'Dance, Dance, Dance!'),
 ('Write Angle', 'C6', ''),
-('Aatmatrisha', 'C7', 'We are one of the biggest fests in Bangalore, we have over 100 events which requires a huge team to coordinate activites perfectly to give the attendees the best experience possible.');
+('Aatmatrisha', 'C7', 'Aatmatrisha is the annual Cultural fest organised by PES University. It is one of the biggest fests in Bangalore, and a lot of hours of work go into it being the success that it is. We have great performers at our fest, along with over 100 events. Organising all of this is not an easy feat, and we require all the help and manpower we can get. If you think you have what it takes to be part of this Organising Team, and you think you will give it your all, then do register as soon as possilbe.');
 
 -- --------------------------------------------------------
 
