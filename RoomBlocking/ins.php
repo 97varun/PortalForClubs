@@ -32,10 +32,10 @@ if ($conn->query($sql) === TRUE) {
                 <a href="../php/logout.php">Logout</a>
              
             </div>  ';
-    echo '<body class="login">';
+    echo '<div class="login" >';
     echo "<h1>Booking successful</h1><br>";
     echo '<button type="button" onclick="Ret()" class="btn btn-primary btn-block btn-large">Return to Booking Page</button><br>';
-    echo "</body>";
+    echo "</div>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
