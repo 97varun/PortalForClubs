@@ -66,7 +66,7 @@ CREATE TABLE `club` (
 --
 
 INSERT INTO `club` (`Club_name`, `Club_ID`, `Club_Description`) VALUES
-('Model United Nations Society', 'C1', 'We focus on building skills in Public Speaking. Won 14 Best Delegation Awards across the country. We are highly selective.'),
+('Model United Nations Society', 'C1', 'The PES Model United Nations Society was started in the year 2013. Since then, we have toiled long and hard to make our colub the success it is today. We won 14 Best Delegation awards across the country. We pride ourselves on the committment shown by each member of the society and strive towards excellence. We hold weekly sessions where we aim at improving our skills. We also host an annual Model United Nations Conference, called the Peoples Conference. It is one of the biggest MUNs in the entirety of South India, missed by few.'),
 ('QQC', 'C2', 'We host one of the biggest quizzes in South India, and we have won numerous awards. If you are interested in quizes, this is the place to be.'),
 ('Debate Society', 'C3', ''),
 ('Samarasa', 'C4', 'We help the army and provide as much support as we can. Hold constant drives to raise funds and awareness'),
@@ -570,15 +570,10 @@ ALTER TABLE `students`
 --
 -- AUTO_INCREMENT for dumped tables
 --
---
--- AUTO_INCREMENT for table `create_event`
---
-ALTER TABLE `create_event`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `create_fest`
 --
-
 ALTER TABLE `create_fest`
   MODIFY `fest_id` int(11) NOT NULL AUTO_INCREMENT;
 --
