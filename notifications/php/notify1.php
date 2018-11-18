@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<h1 style="font-size:50px;text-align:center;"><b>Upcoming Events</b></h1>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="../css/main2.css" />
+			  <link rel="stylesheet" href="../css/font-awesome.min.css" >
+		<!--Menu Bar-->
+		<link rel="stylesheet" href="../../admin/css/navigation.css" >
+		<script  src="../../admin/js/navigation.js"></script> 
+		
+			<div class="container1" onclick="myFunction(this)">
+		  <div class="bar1"></div>
+		  <div class="bar2"></div>
+		  <div class="bar3"></div>
+		</div>
+		<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+			<a href="../../admin/html/admin.html">Home</a></br>
+			<a href="../../notifications/php/registered_students.php">Event Registrations</a></br>
+			<a href="../../admin/php/logout.php">Logout</a></br>					 
+		</div>
+		<!-- --->
 	</head>
 	<body class="is-preload">
+	
 		<?php
 			session_start();
 			$servername = "localhost";
@@ -27,6 +46,7 @@
 			$result=mysqli_query($link,$n);	
 			$a="SELECT * from create_event WHERE club_id IN (SELECT admin.club_id FROM admin,create_event where admin.Club_id=create_event.club_id and admin.Admin_USN='$srn')";
 			$result=mysqli_query($link,$a); 	
+			echo'<br>';
 			echo'<hr />';
 			echo'<div class="container-fluid">';
 			if (mysqli_num_rows($result) > 0)
