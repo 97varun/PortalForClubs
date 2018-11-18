@@ -264,7 +264,13 @@ def makeFeatureVectors(words, model, num_features):
     return featureVec
 
 
+
+
+
 # <h3> Function to create word vectors from a set of reviews </h3>
+
+
+
 
 # In[29]:
 
@@ -295,7 +301,13 @@ def getAvgFeatureVecs(reviews, model, num_features):
     return reviewFeatureVecs
 
 
+
+
+
 # <h2> Building Word2Vector Model for Word Embeddings </h2>
+
+
+
 
 # In[23]:
 
