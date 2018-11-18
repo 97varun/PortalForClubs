@@ -324,7 +324,12 @@ else:
     v2wmodel.save("SentimentAnalysis_Word2VecModel")
 
 
+
+
 # <h3> Embedding Train and Test Vectors </h3>
+
+
+
 
 # In[30]:
 
@@ -336,7 +341,13 @@ reviewTrainVectors = getAvgFeatureVecs(training_review_data, v2wmodel, vector_di
 reviewTestVectors = getAvgFeatureVecs(testing_review_data, v2wmodel, vector_dimensions)
 
 
+
+
+
 # <h3> Training labels </h3>
+
+
+
 
 # In[31]:
 
@@ -344,7 +355,13 @@ reviewTestVectors = getAvgFeatureVecs(testing_review_data, v2wmodel, vector_dime
 target = [1 if i < 12500 else 0 for i in range(25000)]
 
 
+
+
+
 # <h2> Neural Network </h2>
+
+
+
 
 # <h3> Building the Neural Network Model </h3>
 
