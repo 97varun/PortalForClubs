@@ -14,6 +14,19 @@
         $( "#datepicker" ).datepicker();
         $( "#datepicker1" ).datepicker();
       } );
+
+      function ValidateDate() {
+        var f = document.getElementById('datepicker').value;
+        var t = document.getElementById('datepicker1').value;
+        var Fr = new Date(f);
+        var T = new Date(t);
+        var today = new Date();
+        if ( Fr < today || T<Fr) { 
+            alert("Date is invalid please enter valid values");
+            return false;
+        }
+        return true;
+    }
     </script>
 </head>
 <body>
@@ -26,16 +39,16 @@
 	<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
 		<a href="../admin/html/admin.html">Home</a></br>
 		<a href="../EventCalendar/main.html">Calendar</a></br>
-		<a href="../admin/php/logout.php">Logout</a>
+		<a href="../clubs/php/logout.php">Logout</a>
 	 
 	</div>	
 	
     <div class="login">
         <fieldset>
             <h1> Book Room</h1>
-            <form name="register" action="query.php" method="post">
-                <input name="Dp" type="text" id="datepicker" placeholder="please enter start date">
-                <input name="Dp1" type="text" id="datepicker1" placeholder="please enter end date">
+            <form name="register" action="query.php" onsubmit="return ValidateDate()" method="post">
+                <input name="Dp" type="text" id="datepicker" placeholder="please enter start date" required>
+                <input name="Dp1" type="text" id="datepicker1" placeholder="please enter end date" required>
                 <input name="submit" type="submit" class="btn btn-primary btn-block btn-large">
             </form>
         </fieldset>
