@@ -486,8 +486,9 @@ INSERT INTO `sponsors` (`sponsor_name`, `sponsor_email`, `sponsor_phone`, `organ
 ('Sopam', 'sopam@gmail.com', 8943340286, 'Microsoft', 'Model United Nations Society'),
 ('Yash', 'yash@gmail.com', 8943340287, 'MiQ Digital', 'Model United Nations Society'),
 ('Akash', 'akash@gmail.com', 8943340288, 'LogMeIn', 'Aatmatrisha'),
-('Vivek', 'vivek@gmail.com', 8943340289, 'VMWare', 'Aatmatrisha');
-
+('Vivek', 'vivek@gmail.com', 8943340289, 'VMWare', 'Aatmatrisha'),
+('Aashutosh', 'aashutosh@gmail.com', 8993340272, 'Star World', 'Samarasa'),
+('Sabeel', 'sabeel@gmail.com', 8993340243, 'GE Healthcare', 'Pulse');
 
 --
 -- Indexes for table `admin`
