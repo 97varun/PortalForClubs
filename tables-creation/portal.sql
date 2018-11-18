@@ -71,7 +71,7 @@ INSERT INTO `club` (`Club_name`, `Club_ID`, `Club_Description`) VALUES
 ('Debate Society', 'C3', 'Debating, we believe, is the foundation of any Democratic government. Discourse, in any shape and form is the only way that a society can move forward. Here at the PES Debate Society established under PES University, we look towards helping students find their inner debater. We help you form your own opinions about important issues that we all face in our day to day lives, and other issues that are important for students at this age to know about. Come down and join our sessions to improve yourself. We look forward to seeing you here!'),
 ('Samarasa', 'C4', 'The Indian Army works tirelessly to protect our borders and Mother India. They do not get to take any holidays and have no option when they are delpoyed into the field of duty. At Samarasa, we try our best to give back to the soldies that have worked so tirelessly for us. We often organise marathons, bake sales and a host of other events to raise awareness about the great job that they do. If you want to join us in our effort to give back the small amount that we can to them, please register as soon as possible.'),
 ('Pulse', 'C5', 'Dance, Dance, Dance!'),
-('Write Angle', 'C6', 'We focus on making you a better writer.'),
+('Write Angle', 'C6', ''),
 ('Aatmatrisha', 'C7', 'We are one of the biggest fests in Bangalore, we have over 100 events which requires a huge team to coordinate activites perfectly to give the attendees the best experience possible.');
 
 -- --------------------------------------------------------
