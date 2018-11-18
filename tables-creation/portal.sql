@@ -441,20 +441,31 @@ INSERT INTO `feedback` (`rating`, `comments`, `srn`, `email`, `club`) VALUES
 --
 -- Indexes for dumped tables
 --
-CREATE TABLE `sponsers` (
-  `sponser_name` varchar(50) NOT NULL,
-  `sponser_email` varchar(30) DEFAULT NULL,
-  `sponser_phoneNo` bigint(11) DEFAULT NULL,
-  `organization_name` varchar(50) DEFAULT NULL,
-  `about_organization` varchar(150) DEFAULT NULL
+CREATE TABLE `sponsors` (
+  `sponsor_name` varchar(100) NOT NULL,
+  `sponsor_email` varchar(50) DEFAULT NULL,
+  `sponsor_phone` bigint(10) DEFAULT NULL,
+  `organisation_name` varchar(100) DEFAULT NULL,
+  `club_name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sponsers`
 --
 
-INSERT INTO `sponsers` (`sponser_name`, `sponser_email`, `sponser_phoneNo`, `organization_name`, `about_organization`) VALUES
-('Rakesh', 'rakesh@gmail.com', 8943340280, 'AT&T', 'Telecommunications Company');
+INSERT INTO `sponsors` (`sponsor_name`, `sponsor_email`, `sponsor_phone`, `organisation_name`, `club_name`) VALUES
+('Rakesh', 'rakesh@gmail.com', 8943340280, 'Byjus', 'Model United Nations Society'),
+('Ganesh', 'ganesh@gmail.com', 8943340281, 'Samsung', 'Aatmatrisha'),
+('Ramesh', 'ramesh@gmail.com', 8943340282, 'Sony', 'Aatmatrisha'),
+('Suresh', 'suresh@gmail.com', 8943340283, 'Endeavour', 'Debate Society'),
+('Karthik', 'karthik@gmail.com', 8943340284, 'PWC', 'QQC'),
+('Rahul', 'rahul@gmail.com', 8943340285, 'Deloittee', 'Write Angle'),
+('Sopam', 'sopam@gmail.com', 8943340286, 'Microsoft', 'Model United Nations Society'),
+('Yash', 'yash@gmail.com', 8943340287, 'MiQ Digital', 'Model United Nations Society'),
+('Akash', 'akash@gmail.com', 8943340288, 'LogMeIn', 'Aatmatrisha'),
+('Vivek', 'vivek@gmail.com', 8943340289, 'VMWare', 'Aatmatrisha');
+
+
 --
 -- Indexes for table `admin`
 --

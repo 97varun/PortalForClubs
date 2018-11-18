@@ -6,7 +6,7 @@ session_start();
 extract($_POST);
 
 
-$sql="INSERT INTO `sponsers` (`sponser_name`, `sponser_email`, `sponser_phoneNo`, `organization_name`, `about_organization`) VALUES('$name','$email','$phoneno','$orgname','$abtorg');";
+$sql="INSERT INTO `sponsors` (`sponsor_name`, `sponsor_email`, `sponsor_phone`, `organisation_name`, `club_name`) VALUES('$name','$email','$phoneno','$orgname', '$club');";
  $ret=mysqli_query($link,$sql);
  //echo $ret.$name
  $sql="SELECT * from `sponsers` ";

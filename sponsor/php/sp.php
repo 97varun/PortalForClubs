@@ -4,75 +4,94 @@ error_reporting(E_ALL);
 $link=mysqli_connect("localhost","root","","portal");
 session_start();
 extract($_POST);
+
+$clubname = $_SESSION['clubname'];
 //$_SESSION["srn"]=$usn;
 
 
-$sql="SELECT * from `sponsers` ";
- $ret=mysqli_query($link,$sql);
-
- 
+$sql="SELECT * FROM `sponsors` WHERE `Club_name`='$clubname';";
+$ret=mysqli_query($link,$sql);
+$rows=mysqli_fetch_all($ret);
+$res=$ret->num_rows;
 ?>
+
+
 <html>
 <head>
-<title>Sponser Page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sponser Registration </title>
-	
-    <script src="../js/query.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src = "../js/register.js"></script>
-    <!-- Main css -->
-    
-	<style>
-	
-	*{
-		color:white;
-	}
-	html { 
-  background: url(../../events/images/pic1.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-	</style>
-	<link rel="stylesheet" href="../css/navigation.css" >
-	<script  src="../js/navigation.js"></script> 
+<title>Sponsors	</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/admin.css" >
+	<link rel='stylesheet' href='../css/clubmembers.css' >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../js/admin.js"> </script>
 </head>
-<body>
 
-<center><h2>Sponsor Page<h2></center>
+<body style='text-align: center;'>
+	<div class='background-image'></div>
+	<div class='content'>
 
-<div style="float:right">
-<div class="container" onclick="myFunction(this)" >
-	  <div class="bar1"></div>
-	  <div class="bar2"></div>
-	  <div class="bar3"></div>
+	<div class="navbar">
+			<a href="../php/logout.php" style="float:right">Logout</a>
 	</div>
-	<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
-		<a href="../../admin/html/admin.html">Home</a></br>
-		<a href="../../EventCalendar/main.html">Calendar</a></br>
-		<a href="../php/logout.php">Logout</a>
-	 
+
+
+	<div id="wrapper">
+
+		<section id="main">
+
+			<header>
+				<!--<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>-->
+				<h1> Sponsors </h1>
+			</header>
+
+			<br />
+
+			<?php	
+				if($res>0)
+				{
+					echo "<div style='margin-top:5px'>";	
+			?>
+
+			<?php     
+			echo "<table class='table'id='tab' style='color:black;font-size:13px'>";
+				echo "<thead>";
+					echo "<tr>";
+
+						echo "<th>Name</th>";
+						echo "<th>Organisation</th>";
+						echo "<th>Phone No.</th>";
+						echo "<th>Email</th>";
+					   
+					echo "</tr>";
+				echo "</thead>";
+				echo "<tbody>";
+			
+					foreach($rows as $r)
+					{
+						echo "<tr>";
+						echo "<td>$r[0]</td>";
+						echo "<td>$r[3]</td>";
+						echo "<td>$r[2]</td>";
+						echo "<td>$r[1]</td>";
+					echo "</tr>";
+					}
+				echo "</tbody>";
+			echo "</table>"; 
+			echo "</div>";
+			
+		}
+		
+		
+	?>
+		
+		</section>
+
+	</div>
+
 </div>
-</div>
 
-
-<?php 
-//echo (mysqli_fetch_array($ret)['sponser_name']);
-//$row=mysqli_fetch_array($ret);
-//echo nl2br($row[0]."\n".$row[1]."\n".$row[2]."\n".$row[3]."\n".$row[4]);
-
-if (mysqli_num_rows($ret) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($ret)) {
-        echo "<B>Organization_name: </B>" . $row["organization_name"]. "<br>" . "<B>About: </B>".$row["about_organization"]."<br>". "<B>Email: </B>".$row["sponser_email"]."<br><br>";
-    }
-} else {
-    echo "0 results";
-}
-?>
 </body>
 </html>

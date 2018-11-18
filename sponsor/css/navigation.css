@@ -1,12 +1,13 @@
-.container {
+.container1 
+{
     display: inline-block;
     cursor: pointer;
 	float:right;
-	
 	background-color:rgba(255,255,255,0.5);
 	padding-right:20px;
 	padding-left:20px;
 	border-radius:10px;
+	
 }
 
 .bar1, .bar2, .bar3 {

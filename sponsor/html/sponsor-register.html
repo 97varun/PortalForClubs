@@ -7,13 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sponser Registration </title>
 	
-    <script src="../js/query.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
     <script src="../js/main.js"></script>
     <script src = "../js/register.js"></script>
     <!-- Main css -->
     <link rel="stylesheet" href="../css/register.css">
+
+
+    <script type="text/javascript">
+        var obj={
+                    xhr:new XMLHttpRequest(),
+                    Clubs:function(){
+                        this.xhr.onreadystatechange=this.update;
+                        this.xhr.open("GET","../php/addClubs.php",true);
+                        this.xhr.send();
+                    },
+                    update:function(){
+                        if(this.readyState==4 && this.status==200){
+                            var res=this.responseText;
+                            console.log(res);
+                            /*The JSON.parse() method parses a JSON string, constructing the JavaScript value or object described by the string. */
+                            var resJSON=JSON.parse(res);
+                            for(i=0; i<resJSON.length; i++){
+                                var option = document.createElement("option");
+                                option.appendChild(document.createTextNode(resJSON[i]));
+                                document.getElementById("Clubname").appendChild(option);
+                            }  
+                        }
+                    }
+        }
+
+    </script>
 </head>
-<body>
+
+<body onload="obj.Clubs()">
 
     <div class="main">
 
@@ -40,10 +67,10 @@
                             <input type="text" class="form-input" name="orgname" id="name" onblur = "nameCheck()" placeholder="Organisation Name"/>
                             <p id = 'check1'></p>
                         </div>
- 
-						<div class="form-group">
-                            <input type="text" class="form-input" name="abtorg" id="name" onblur = "nameCheck()" placeholder="About Organisation"/>
-                            <p id = 'check1'></p>
+                        <div class="form-group">
+                            <select id="Clubname" class="form-input" name="club">      
+                                <option> Choose a Club </option>                       
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="submit" name="button" id="button" class="form-submit" value="Submit" />
