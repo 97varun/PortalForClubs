@@ -210,12 +210,16 @@ $(document).ready(function() {
             $('#calendar').fullCalendar('removeEventSource', 'php/eventfeed.php');
             $('#calendar').fullCalendar('addEventSource', 'php/roomfeed.php');
             customButtons.View.text = "Rooms";
-            customButtons.Add.text = "Book rooms";
+            if (customButtons.Add) {
+                customButtons.Add.text = "Book rooms";
+            }
         } else {
             $('#calendar').fullCalendar('removeEventSource', 'php/roomfeed.php');
             $('#calendar').fullCalendar('addEventSource', 'php/eventfeed.php');
             customButtons.View.text = "Events";
-            customButtons.Add.text = "Create event";
+            if (customButtons.Add) {
+                customButtons.Add.text = "Create event";
+            }
         }
         $('#calendar').fullCalendar('option', 'customButtons', customButtons);
         addNavMenuBtn();

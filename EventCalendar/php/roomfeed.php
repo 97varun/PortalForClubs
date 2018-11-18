@@ -18,7 +18,8 @@
                 "end"   => date("c", strtotime("$to")),
                 "desc"  => $row["b_name"],
                 "color" => $bg_color,
-                "textColor" => $txt_color
+                "textColor" => $txt_color,
+                "allDay" => true
             );
         }
         return $resp;
