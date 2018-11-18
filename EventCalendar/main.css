@@ -13,13 +13,14 @@ body {
     padding: 1%;
 }
 /* removes extra border on the first row of table inside popover */
-.borderless tr:first-child td {
+.borderless tr td {
     border: none;
+    border-bottom: 1px solid #dee2e6;
 }
 
 /* shows popover content neatly */
 .popover{
-    /* min-width: 275px; */
+    min-width: 200px;
     max-width: 350px;
     box-shadow: 1px 1px 10px rgb(190, 190, 190);  
 }
