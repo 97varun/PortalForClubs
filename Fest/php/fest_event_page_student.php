@@ -94,7 +94,7 @@
 					//echo "<a href=../../events/php/delete_event.php?event_id=",urlencode($row["event_id"]),">delete</a>";
 					echo"<br>";
 					$x=$row["fest_event_id"];
-					echo '<a href=../../Fest/php/fest_event_page_student.php onclick="return func1(\''.$srn.'\','.$x.');">register</a>';
+					echo '<a href=../../Fest/php/fest_page_student.php onclick="return func1(\''.$srn.'\','.$x.');">register</a>';
 					echo"</div>";
 				}
 				echo'</div>';
