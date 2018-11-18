@@ -44,6 +44,9 @@ import csv
 import os
 
 
+
+
+
 # In[14]:
 
 
@@ -71,6 +74,9 @@ tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 stemmer = PorterStemmer()
 
 
+
+
+
 # In[40]:
 
 
@@ -84,9 +90,18 @@ training_epochs = 100
 training_batch_size  = 10
 
 
+
+
+
 # <h2> Helper Functions for Preprocessing a review</h2>
 
+
+
+
 # <h3> Convert `raw_review` to a list of words </h3>
+
+
+
 
 # In[12]:
 
