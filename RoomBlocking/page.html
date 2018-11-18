@@ -5,6 +5,8 @@
     <title>Room Blocking</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="navigation.css" >
+	<script  src="navigation.js"></script> 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
@@ -15,6 +17,19 @@
     </script>
 </head>
 <body>
+	<!--navigation menu-->
+	<div class="container" onclick="myFunction(this)">
+	  <div class="bar1"></div>
+	  <div class="bar2"></div>
+	  <div class="bar3"></div>
+	</div>
+	<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+		<a href="../../student/html/student.html">Home</a></br>
+		<a href="../../EventCalendar/main.html">Calendar</a></br>
+		<a href="../php/logout.php">Logout</a>
+	 
+	</div>	
+	
     <div class="login">
         <fieldset>
             <h1> Book Room</h1>
