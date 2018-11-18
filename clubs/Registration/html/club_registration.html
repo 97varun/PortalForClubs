@@ -5,17 +5,25 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/navigation.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 		
 	</head>
 	<body  onload="check()">
 	
 	<div class="background-image"></div>
-	<div class="content">
-		<div class="navbar">			
-			<a href="../../php/clubpage.php" style="position:scroll" > Home</a>
-			<a href="../../php/logout.php" style="float:right;position:scroll" > Logout</a>
-		</div>
+	<div class="container" onclick="myFunction(this)">
+	  <div class="bar1"></div>
+	  <div class="bar2"></div>
+	  <div class="bar3"></div>
+	</div>
+	<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+		<a href="../../../student/html/student.html">Home</a></br> <!-- need to update -->
+		<a href="../../../EventCalendar/main.html">Calendar</a></br>
+		<a href="../../../student/php/logout.php">Logout</a>
+	 
+	</div>	
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -80,5 +88,6 @@
 </div>
 		<!-- Scripts -->
 			<script src="../js/club_registration.js"> </script>
+			<script src="../js/navigation.js"> </script>
 	</body>
 </html>
