@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	if($bool==true) // checks if bool is true
 	{
-		$sql="INSERT INTO create_fest_event (fest_id,club_id,date_cur,time_cur,end_time,fest_event_name,place,more_info,invite) VALUES ('$fest_id',$club_id,'$date_cur','$time_cur','$end_time','$fest_event_name','$place','$more_info','$invite')"; //Inserts the value to table registration
+		$sql="INSERT INTO create_fest_event (fest_id,club_id,date_cur,time_cur,end_time,fest_event_name,place,more_info,invite) VALUES ('$fest_id','$club_id','$date_cur','$time_cur','$end_time','$fest_event_name','$place','$more_info','$invite')"; //Inserts the value to table registration
 		echo "<script>setTimeout(\"location.href = '../../admin/html/admin.html';\",500);</script>";
 		//print '<script>alert("Successfully Registered! ");</script>';
 		if (mysqli_query($link, $sql))
