@@ -15,3 +15,35 @@ function edit_event()
 {
 	window.location="../../events/html/event.html";
 }
+
+function func ( srn,event_id)
+{
+xhr=new XMLHttpRequest();
+console.log(srn);
+console.log(event_id);
+xhr.onreadystatechange=check_exist;
+xhr.open("POST","../../events/php/register_event.php",true);
+xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+xhr.send("srn="+srn+"&event_id="+event_id);	
+
+}
+
+function check_exist()
+{
+	
+	if(this.readyState==4 && this.status==200){
+		var res=this.responseText;
+		//console.log(res)
+		if(res=="-1")
+		{
+			return false;
+		}
+		else if(res=="1")
+			
+		{	
+ 			return true;
+		}
+	
+	}
+
+}
