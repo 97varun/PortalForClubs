@@ -69,12 +69,6 @@ for c in [0.01, 0.05, 0.25, 0.5, 1]:
     lr.fit(X_train, y_train)
     print ("Accuracy for C=%s: %s" 
            % (c, accuracy_score(y_val, lr.predict(X_val))))
-    
-#     Accuracy for C=0.01: 0.87472
-#     Accuracy for C=0.05: 0.88368
-#     Accuracy for C=0.25: 0.88016
-#     Accuracy for C=0.5: 0.87808
-#     Accuracy for C=1: 0.87648
 
 
 # In[11]:
@@ -107,21 +101,201 @@ for best_positive in sorted(
     key=lambda x: x[1], 
     reverse=True)[:5]:
     print (best_positive)
-    
-#     ('excellent', 0.9288812418118644)
-#     ('perfect', 0.7934641227980576)
-#     ('great', 0.675040909917553)
-#     ('amazing', 0.6160398142631545)
-#     ('superb', 0.6063967799425831)
+
     
 for best_negative in sorted(
     feature_to_coef.items(), 
     key=lambda x: x[1])[:5]:
     print (best_negative)
-    
-#     ('worst', -1.367978497228895)
-#     ('waste', -1.1684451288279047)
-#     ('awful', -1.0277001734353677)
-#     ('poorly', -0.8748317895742782)
-#     ('boring', -0.8587249740682945)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
