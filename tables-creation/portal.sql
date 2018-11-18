@@ -570,10 +570,15 @@ ALTER TABLE `students`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
+--
+-- AUTO_INCREMENT for table `create_event`
+--
+ALTER TABLE `create_event`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `create_fest`
 --
+
 ALTER TABLE `create_fest`
   MODIFY `fest_id` int(11) NOT NULL AUTO_INCREMENT;
 --
