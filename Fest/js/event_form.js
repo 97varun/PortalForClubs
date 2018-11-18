@@ -11,3 +11,36 @@ $(function(){
 		$(this).css("font-weight"," bold");
     });
 });
+
+
+function func1 ( srn,fest_event_id)
+{
+xhr=new XMLHttpRequest();
+console.log(srn);
+console.log(fest_event_id);
+xhr.onreadystatechange=check_exist;
+xhr.open("POST","../../Fest/php/register_fest_event.php",true);
+xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+xhr.send("srn="+srn+"&fest_event_id="+fest_event_id);	
+
+}
+
+function check_exist()
+{
+	
+	if(this.readyState==4 && this.status==200){
+		var res=this.responseText;
+		//console.log(res)
+		if(res=="-1")
+		{
+			return false;
+		}
+		else if(res=="1")
+			
+		{	
+ 			return true;
+		}
+	
+	}
+
+}
