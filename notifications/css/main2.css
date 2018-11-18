@@ -1,6 +1,12 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
-
+body { 
+  background: url(../../clubs/images/pic2.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 
 	html, body, div, span, applet, object,
@@ -14,9 +20,9 @@
 	canvas, details, embed, figure, figcaption,
 	footer, header, hgroup, menu, nav, output, ruby,
 	section, summary, time, mark, audio, video {
-
+		margin: 0;
 		padding: 0;
-
+		border: 0;
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
@@ -61,27 +67,34 @@
 		margin-right: 10px;
 	}
 	.position_text1{
-		margin-left: 430px;
+		margin-left: 50px;
 	}
 	.container-fluid{
 	padding: 0px 0px;
 	}
 
-
+	.bold_text{
+	font-weight:bold;
+	font-size:25px;
+	color:black;
+	}
 	
 	#rcorners3 {
     border-radius: 15px;
  	}
 	
 	[class*="col-"] {
-		margin-top:-5px; 
-    margin-bottom: 25px; 
+	margin-top:-5px; 
+    	margin-bottom: 25px; 
 	margin-right: 0px;
 	margin-left: 200px;
 	background-color:white;
 	}
 
-
+	input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
 
 	input, select, textarea {
 		-moz-appearance: none;
@@ -123,20 +136,30 @@
 		height: 100%;
 	}
 
-	body {
-		height: 100%;
-		background-color: #ffffff;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-repeat: repeat,			no-repeat,			no-repeat;
-		background-size: 100px 100px, cover,				cover;
-		background-position: top left,		center center,		bottom center;
-		background-attachment: fixed,			fixed,				fixed;
-	}
 
-
+		body:after {
+			content: '';
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: inherit;
+			opacity: 0;
+			z-index: 1;
+			background-color: #ffffff;
+			background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+			background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+			background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+			background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
+			background-repeat: repeat,			no-repeat;
+			background-size: 100px 100px, cover;
+			background-position: top left,		center center;
+			-moz-transition: opacity 1.75s ease-out;
+			-webkit-transition: opacity 1.75s ease-out;
+			-ms-transition: opacity 1.75s ease-out;
+			transition: opacity 1.75s ease-out;
+		}
 
 		body.is-preload:after {
 			opacity: 1;
@@ -145,7 +168,7 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: #414f57;
+		color: black;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 14pt;
 		font-weight: 600;
