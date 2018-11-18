@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<h1 style="font-size:50px;text-align:center;"><b>Upcoming Events</b></h1>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="../css/main2.css" />
+		
+		<!--Menu Bar-->
+		<link rel="stylesheet" href="../../events/css/navigation.css" >
+		<script  src="../../events/js/navigation.js"></script> 
+		<div class="dropdown pull-right">	
+			<button class="btn btn-secondary btn-lg dropdown-toggle "  type="button" data-toggle="dropdown">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</button>
+			
+			<ul class="dropdown-menu dropdown-content " >
+			  <li><a  href="../../student/html/student.html" >Home</a></li>
+			  <li><a href="../../student/php/logout.php">Logout</a></li>
+			</ul>
+		</div>
+		<!-- --->
+		
+		<h1 style="font-size:50px;text-align:center;"><b>Upcoming Events</b></h1>
+
+		
 	</head>
 	<body class="is-preload">
 		<?php
@@ -28,7 +48,6 @@
 			$result=mysqli_query($link,$n);	
 			$a="SELECT * from create_event";
 			$result=mysqli_query($link,$a); 	
-			echo'<hr />';
 			echo'<div class="container-fluid">';
 			if (mysqli_num_rows($result) > 0)
 			{
