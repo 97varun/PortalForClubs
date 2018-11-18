@@ -35,6 +35,7 @@ $res=$ret->num_rows;
 
 	<div class="navbar">
 			<a href="../php/logout.php" style="float:right">Logout</a>
+			<a href="../../admin/html/admin.html" style="float:right">Home</a>
 	</div>
 
 
