@@ -441,7 +441,20 @@ INSERT INTO `feedback` (`rating`, `comments`, `srn`, `email`, `club`) VALUES
 --
 -- Indexes for dumped tables
 --
+CREATE TABLE `sponsers` (
+  `sponser_name` varchar(50) NOT NULL,
+  `sponser_email` varchar(30) DEFAULT NULL,
+  `sponser_phoneNo` bigint(11) DEFAULT NULL,
+  `organization_name` varchar(50) DEFAULT NULL,
+  `about_organization` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `sponsers`
+--
+
+INSERT INTO `sponsers` (`sponser_name`, `sponser_email`, `sponser_phoneNo`, `organization_name`, `about_organization`) VALUES
+('Rakesh', 'rakesh@gmail.com', 8943340280, 'AT&T', 'Telecommunications Company');
 --
 -- Indexes for table `admin`
 --
