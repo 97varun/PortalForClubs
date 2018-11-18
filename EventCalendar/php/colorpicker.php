@@ -7,16 +7,21 @@
             fclose($colorfile);
             $this->bg_color = array();
         }
-        public function get_background_color($club_id) {
-            // random color with seed club id
-            mt_srand(crc32($club_id));
+        public function get_background_color($id) {
+            // random color with seed id
+            if (gettype($id) == "string") {
+                mt_srand(crc32($id));
+            } else {
+                mt_srand($id);
+            }
             $rand_key = mt_rand(0, sizeof($this->colors));
-            if (array_key_exists($club_id, $this->bg_color)) {
-                return $this->bg_color[$club_id];
+            if (array_key_exists($id, $this->bg_color)) {
+                return $this->bg_color[$id];
             }
             $rand_color = $this->colors[$rand_key];
             unset($this->colors[$rand_key]);
-            $this->bg_color[$club_id] = $rand_color;
+            $this->colors = array_values($this->colors);
+            $this->bg_color[$id] = $rand_color;
             return $rand_color;
         }
         public function get_text_color($bg_color) {

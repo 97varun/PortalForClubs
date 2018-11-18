@@ -54,6 +54,17 @@
             $rows = $this->getRows($result);
             return $rows;
         }
+        public function getBookingInfo($start, $end) {
+            $sql = "SELECT rooms.roomid, rooms.roomname, bookings.from_d, bookings.to_d, bookings.b_name
+                    FROM rooms
+                    JOIN bookings
+                    ON rooms.roomid = bookings.roomid
+                    WHERE bookings.from_d >= \"$start\" AND bookings.from_d <= \"$end\"
+                    OR bookings.to_d >= \"$start\" AND bookings.to_d <= \"$end\";";
+            $result = $this->conn->query($sql);
+            $rows = $this->getRows($result);
+            return $rows;
+        }
         public function __destruct() {
             $this->conn->close();
         }

@@ -2,8 +2,14 @@ $(document).ready(function() {
     // initialize full calendar
     $('#calendar').fullCalendar({
         themeSystem: 'bootstrap4',
+        customButtons: {
+            View: {
+                text: 'Events',
+                click: toggleViewBtn
+            }
+        },
         header: {
-            left: 'today',
+            left: 'today View',
             center: 'prev title next',
             right: 'Add'
         },
@@ -19,9 +25,13 @@ $(document).ready(function() {
         eventClick: eventClick
     });
 
-    // create event button click
+    // create event
     function addEvent() {
         window.open("../events/html/event.html", "_self");
+    }
+    // book rooms
+    function addEvent() {
+        window.open("../RoomBlocking/page.html", "_self");
     }
 
     // handling the popover which comes up when you click on an event
@@ -37,25 +47,8 @@ $(document).ready(function() {
         //get title from html
         var title = $("#popover-title");
         title.find("#title").html(calEvent.title);
-        
-        // get the content for popover from html
-        var content = $('#popover-content');
-        var eventTime = calEvent.start.format("Do MMM h:mm a");
-        if (calEvent.end != undefined) {
-            eventTime += " - " + calEvent.end.format("Do MMM h:mm a");
-        }
-        content.find('#time').html(eventTime);
-        content.find('#club').html(calEvent.club);
-        
-        // don't show description if it's empty.
-        if (calEvent.desc.trim().length > 0) {
-            content.find('#desc').parent().css("display", "table-row");
-            content.find('#desc').html(calEvent.desc);
-        } else {
-            content.find('#desc').parent().css("display", "none");
-        }
-        content.find('#venue').html(calEvent.venue);
-        content.find('.btn-group').css("display", calEvent.showDelete ? "inline-flex" : "none");
+
+        var content = getPopoverContent(calEvent);
 
         // edit button
         $('body').on('click', '#edit', function() {
@@ -132,6 +125,40 @@ $(document).ready(function() {
         $('body').on('click', '#del', switchContent);
     }
 
+    // function to create popover content
+    function getPopoverContent(calEvent) {
+        var view = $("#calendar").fullCalendar('option', 'customButtons').View.text;
+        var timeFormat = view == "Rooms" ? "Do MMM" : "Do MMM h:mm a";
+
+        // get the content for popover from html
+        var content = $('#popover-content').clone();
+        var eventTime = calEvent.start.format(timeFormat);
+        if (calEvent.end != undefined) {
+            eventTime += " - " + calEvent.end.format(timeFormat);
+        }
+
+        content.find('#time').html(eventTime);
+        // don't show description if it's empty.
+        if (calEvent.desc.trim().length > 0) {
+            content.find('#desc').parent().css("display", "table-row");
+            content.find('#desc').html(calEvent.desc);
+        } else {
+            content.find('#desc').parent().css("display", "none");
+        }
+
+        if (view == "Events") {
+            content.find('#club').html(calEvent.club);
+            content.find('#venue').html(calEvent.venue);
+            content.find('.btn-group').css("display", calEvent.showDelete ? "inline-flex" : "none");
+        } else {
+            content.find('#club').parent().hide();
+            content.find('#venue').parent().hide();
+            content.find('.btn-group').css("display", "none");
+            content.find('#desc').parent().css("display", "none");
+        }
+        return content;
+    }
+
     // refetch events if someone else updates events
     var eventSource = new EventSource('php/updevents.php');
     eventSource.onmessage = refetch;
@@ -157,32 +184,57 @@ $(document).ready(function() {
         $.ajax({
             url: "php/chkaccess.php",
             success: function(resp) {
+                var customButtons = $('#calendar').fullCalendar('option', 'customButtons');
                 if (resp === "admin") {
-                    $('#calendar').fullCalendar('option', 'customButtons', {
-                        Add: {
-                            text: 'Create event',
-                            click: addEvent
-                        }
-                    });
+                    customButtons.Add = {
+                        text: customButtons.View.text == 'Events' ? 'Create event' : 'Book rooms',
+                        click: customButtons.View.text == 'Events' ? addEvent : bookRoom
+                    }
+                    customButtons = $('#calendar').fullCalendar('option', 'customButtons', customButtons);
                 } else {
-                    $('#calendar').fullCalendar('option', 'customButtons', {});
+                    delete customButtons.Add;
+                    customButtons = $('#calendar').fullCalendar('option', 'customButtons', customButtons);
                 }
-                var nav = $('#nav-menu-container').clone();
-                console.log($('#myDropdown').css('display'));
-                if ($('#myDropdown').css('display') == 'block') {
-                    nav.find("#nav-menu").addClass("change");
-                }
-                $('.fc-right').append(nav.html());
+                addNavMenuBtn();
             },
             error: function(error) {
                 alert("error: " + error);
             }
         });
     }
+
+    // toggle views
+    function toggleViewBtn() {
+        var customButtons = $('#calendar').fullCalendar('option', 'customButtons');
+        if (customButtons.View.text == "Events") {
+            $('#calendar').fullCalendar('removeEventSource', 'php/eventfeed.php');
+            $('#calendar').fullCalendar('addEventSource', 'php/roomfeed.php');
+            customButtons.View.text = "Rooms";
+            customButtons.Add.text = "Book rooms";
+        } else {
+            $('#calendar').fullCalendar('removeEventSource', 'php/roomfeed.php');
+            $('#calendar').fullCalendar('addEventSource', 'php/eventfeed.php');
+            customButtons.View.text = "Events";
+            customButtons.Add.text = "Create event";
+        }
+        $('#calendar').fullCalendar('option', 'customButtons', customButtons);
+        addNavMenuBtn();
+    }
+
+    // handle navigation menu
     $("body").on('click', ".fc-right #nav-menu", toggleNavMenu);
     function toggleNavMenu(x) {
         x = x.currentTarget;
         $(x).toggleClass("change");
         $("#myDropdown").toggle();
+    }
+    
+    // add navigation menu button
+    function addNavMenuBtn() {
+        var nav = $('#nav-menu-container').clone();
+        if ($('#myDropdown').css('display') == 'block') {
+            nav.find("#nav-menu").addClass("change");
+        }
+        $('.fc-right').append(nav.html());
     }
 }); 
