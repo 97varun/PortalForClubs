@@ -164,11 +164,15 @@ $(document).ready(function() {
                             click: addEvent
                         }
                     });
-                    $('.fc-right').append($('#nav-menu-container').html());
                 } else {
                     $('#calendar').fullCalendar('option', 'customButtons', {});
-                    $('.fc-right').append($('#nav-menu-container').html());
                 }
+                var nav = $('#nav-menu-container').clone();
+                console.log($('#myDropdown').css('display'));
+                if ($('#myDropdown').css('display') == 'block') {
+                    nav.find("#nav-menu").addClass("change");
+                }
+                $('.fc-right').append(nav.html());
             },
             error: function(error) {
                 alert("error: " + error);
