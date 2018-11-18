@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sponser Registration </title>
+	
+    <script src="../js/query.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src = "../js/register.js"></script>
+    <!-- Main css -->
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form  method="post" action="../php/insert.php" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Sponser Registration</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" onblur = "nameCheck()" placeholder="Your Name"/>
+                            <p id = 'check1'></p>
+                        </div>
+                 
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" onblur = "validateEmail()" placeholder="Your Email"/>
+                            <p id = 'check3'></p>
+                        </div>
+						<div class="form-group">
+                            <input type="number" class="form-input" name="phoneno" id="number" onblur = "validateNumber()" placeholder="Your Number"/>
+                            <p id = 'check6'></p>
+                        </div>
+						<div class="form-group">
+                            <input type="text" class="form-input" name="orgname" id="name" onblur = "nameCheck()" placeholder="Organisation Name"/>
+                            <p id = 'check1'></p>
+                        </div>
+ 
+						<div class="form-group">
+                            <input type="text" class="form-input" name="abtorg" id="name" onblur = "nameCheck()" placeholder="About Organisation"/>
+                            <p id = 'check1'></p>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="button" id="button" class="form-submit" value="Submit" />
+                        </div>
+                    </form>
+ 
+                </div>
+            </div>
+        </section>
+
+    </div>
+  </body>
+</html>
