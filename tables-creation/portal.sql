@@ -196,7 +196,7 @@ INSERT INTO `create_event` (`event_id`, `club_id`, `date_cur`, `time_cur`, `end_
 --
 
 CREATE TABLE `create_fest` (
-  `fest_id` int(11) NOT NULL,
+  `fest_id` int(11) NOT NULL AUTO_INCREMENT,
   `club_id` varchar(20) NOT NULL,
   `date_cur` date NOT NULL,
   `time_cur` time NOT NULL,
@@ -204,7 +204,8 @@ CREATE TABLE `create_fest` (
   `fest_name` varchar(20) NOT NULL,
   `place` varchar(100) NOT NULL,
   `more_info` text NOT NULL,
-  `invite` text NOT NULL
+  `invite` text NOT NULL,
+  PRIMARY KEY(`fest_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -213,7 +214,7 @@ CREATE TABLE `create_fest` (
 
 INSERT INTO `create_fest` (`fest_id`,`club_id`, `date_cur`, `time_cur`, `end_time`, `fest_name`, `place`, `more_info`, `invite`) VALUES
 (20,'C2', '2019-07-02', '06:20:00', '12:00:00', 'pi', 'MRD Auditorium', 'A fest for all the math enthusiasts out there!', 'Open to all students of all departments.'),
-(21,'C7', '2019-05-06', '08:25:00', '12:40:00', 'aatmatrisha', 'OAT', 'Largest cultural fest of PES!', 'Open to all students of all departments.')
+(21,'C7', '2019-05-06', '08:25:00', '12:40:00', 'aatmatrisha', 'OAT', 'Largest cultural fest of PES!', 'Open to all students of all departments.');
 
 
 -- --------------------------------------------------------
@@ -223,7 +224,7 @@ INSERT INTO `create_fest` (`fest_id`,`club_id`, `date_cur`, `time_cur`, `end_tim
 --
 
 CREATE TABLE `create_fest_event` (
-  `fest_event_id` int(11) NOT NULL,
+  `fest_event_id` int(11) NOT NULL AUTO_INCREMENT,
   `fest_id` int(11) NOT NULL,
   `club_id` varchar(20) NOT NULL,
   `date_cur` date NOT NULL,
@@ -232,7 +233,8 @@ CREATE TABLE `create_fest_event` (
   `fest_event_name` varchar(20) NOT NULL,
   `place` varchar(100) NOT NULL,
   `more_info` text NOT NULL,
-  `invite` text NOT NULL
+  `invite` text NOT NULL,
+  PRIMARY KEY(`fest_event_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -243,7 +245,7 @@ INSERT INTO `create_fest_event` (`fest_event_id`,`fest_id`,`club_id`, `date_cur`
 (1,20,'C2', '2019-07-02', '06:20:00', '12:00:00', 'Math Quiz', 'MRD Auditorium', 'A fest for all the math enthusiasts out there!', 'Open to all students of all departments.'),
 (3,21,'C7', '2019-05-05', '09:16:00', '01:02:00', 'Racing', 'Near OAT', 'Love racing? Participate!', 'Open to all students of all departments.'),
 (4,21,'C7', '2019-05-06', '10:00:00', '12:00:00', 'Battle of bands', 'Cricket ground', 'Passionate about Music? Come show your talent!', 'Open to all students of all departments.'),
-(5,21,'C7', '2019-05-06', '09:00:00', '11:00:00', 'Chess', 'B208', 'Are you a chess master? This is your chance to prove it and win exciting prizes.', 'Open to all students of all departments.')
+(5,21,'C7', '2019-05-06', '09:00:00', '11:00:00', 'Chess', 'B208', 'Are you a chess master? This is your chance to prove it and win exciting prizes.', 'Open to all students of all departments.');
 
 
 
@@ -530,21 +532,6 @@ ALTER TABLE `create_event`
   ADD KEY `create_event_ibfk_1` (`club_id`);
 
 --
--- Indexes for table `create_fest`
---
-ALTER TABLE `create_fest`
-  ADD PRIMARY KEY (`fest_id`),
-  ADD KEY `create_fest_ibfk_1` (`club_id`);
-
---
--- Indexes for table `create_fest_event`
---
-ALTER TABLE `create_fest_event`
-  ADD PRIMARY KEY (`fest_event_id`),
-  ADD KEY `create_fest_event_ibfk_1` (`fest_id`),
-  ADD KEY `create_fest_event_ibfk_2` (`club_id`);
-
---
 -- Indexes for table `past_event`
 --
 ALTER TABLE `past_event`
@@ -559,27 +546,13 @@ ALTER TABLE `register_event`
 -- Indexes for table `register_fest_event`
 --
 ALTER TABLE `register_fest_event`
-  ADD CONSTRAINT `register_fest_event_ibfk_1` FOREIGN KEY (`fest_event_id`) REFERENCES `create_fest_event` (`fest_event_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `register_fest_event_ibfk_1` FOREIGN KEY (`fest_event_id`) REFERENCES `create_fest_event` (`fest_event_id`);
 --
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`Student_USN`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `create_fest`
---
-ALTER TABLE `create_fest`
-  MODIFY `fest_id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `create_fest_event`
---
-ALTER TABLE `create_fest_event`
-  MODIFY `fest_event_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
