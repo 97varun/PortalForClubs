@@ -30,7 +30,7 @@ $(document).ready(function() {
         window.open("../events/html/event.html", "_self");
     }
     // book rooms
-    function addEvent() {
+    function bookRoom() {
         window.open("../RoomBlocking/page.html", "_self");
     }
 
@@ -215,6 +215,7 @@ $(document).ready(function() {
             customButtons.View.text = "Rooms";
             if (customButtons.Add) {
                 customButtons.Add.text = "Book rooms";
+                customButtons.Add.click = bookRoom;
             }
         } else {
             $('#calendar').fullCalendar('removeEventSource', 'php/roomfeed.php');
@@ -222,6 +223,7 @@ $(document).ready(function() {
             customButtons.View.text = "Events";
             if (customButtons.Add) {
                 customButtons.Add.text = "Create event";
+                customButtons.Add.click = addEvent;
             }
         }
         $('#calendar').fullCalendar('option', 'customButtons', customButtons);
