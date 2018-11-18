@@ -16,9 +16,9 @@
 		  <div class="bar3"></div>
 		</div>
 		<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
-			<a href="../../admin/html/admin.html">Home</a></br>
-			<a href="../../notifications/php/registered_students.php">Event Registrations</a></br>
-			<a href="../../admin/php/logout.php">Logout</a></br>					 
+			<a href="../../student/html/student.html">Home</a></br>
+			<!--<a href="../../notifications/php/registered_students.php">Event Registrations</a></br>-->
+			<a href="../../student/php/logout.php">Logout</a></br>					 
 		</div>
 		<!-- --->
 	</head>
