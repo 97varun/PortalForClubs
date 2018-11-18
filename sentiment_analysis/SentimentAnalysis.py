@@ -51,6 +51,9 @@ reviews_train_clean = preprocess_reviews(reviews_train)
 reviews_test_clean = preprocess_reviews(reviews_test)
 
 
+
+
+
 # In[8]:
 
 
@@ -58,6 +61,9 @@ cv = CountVectorizer(binary=True)
 cv.fit(reviews_train_clean)
 X = cv.transform(reviews_train_clean)
 X_test = cv.transform(reviews_test_clean)
+
+
+
 
 
 # In[10]:
@@ -83,6 +89,9 @@ for c in [0.01, 0.05, 0.25, 0.5, 1]:
 #     Accuracy for C=1: 0.87648
 
 
+
+
+
 # In[11]:
 
 
@@ -93,11 +102,17 @@ print ("Final Accuracy: %s"
 # Final Accuracy: 0.88128
 
 
+
+
+
 # In[16]:
 
 
 filename = 'baseline.sav'
 pickle.dump(final_model, open(filename, 'wb'))
+
+
+
 
 
 # In[12]:
