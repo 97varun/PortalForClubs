@@ -241,7 +241,7 @@ CREATE TABLE `create_fest_event` (
 
 INSERT INTO `create_fest_event` (`fest_event_id`,`fest_id`,`club_id`, `date_cur`, `time_cur`, `end_time`, `fest_event_name`, `place`, `more_info`, `invite`) VALUES
 (1,20,'C2', '2019-07-02', '06:20:00', '12:00:00', 'Math Quiz', 'MRD Auditorium', 'A fest for all the math enthusiasts out there!', 'Open to all students of all departments.'),
-(3,21,'C7', '2019-05-05', '09:16:00', '01:02:00', 'Racing', 'Near OAT', 'Love for racing? Participate!', 'Open to all students of all departments.'),
+(3,21,'C7', '2019-05-05', '09:16:00', '01:02:00', 'Racing', 'Near OAT', 'Love racing? Participate!', 'Open to all students of all departments.'),
 (4,21,'C7', '2019-05-06', '10:00:00', '12:00:00', 'Battle of bands', 'Cricket ground', 'Passionate about Music? Come show your talent!', 'Open to all students of all departments.'),
 (5,21,'C7', '2019-05-06', '09:00:00', '11:00:00', 'Chess', 'B208', 'Are you a chess master? This is your chance to prove it and win exciting prizes.', 'Open to all students of all departments.')
 
