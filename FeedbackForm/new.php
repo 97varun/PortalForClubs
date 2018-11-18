@@ -3,7 +3,7 @@
     session_start(); extract($_SESSION);
         $club=$_SESSION['clubname'];
     ?>
-    <script src="http://localhost/SE/min.js">
+    <script src="min.js">
     </script>
     <script type="text/javascript">
     var club = "<?php echo $club ?>";
