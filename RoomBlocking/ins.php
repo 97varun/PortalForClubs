@@ -27,9 +27,9 @@ if ($conn->query($sql) === TRUE) {
               <div class="bar3"></div>
             </div>
             <div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
-                <a href="../../student/html/student.html">Home</a></br>
-                <a href="../../EventCalendar/main.html">Calendar</a></br>
-                <a href="../php/logout.php">Logout</a>
+             <a href="../admin/html/admin.html">Home</a></br>
+            <a href="../EventCalendar/main.html">Calendar</a></br>
+            <a href="../clubs/php/logout.php">Logout</a>
              
             </div>  ';
     echo '<div class="login" >';
