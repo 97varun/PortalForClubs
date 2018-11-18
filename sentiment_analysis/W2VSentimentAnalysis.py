@@ -365,6 +365,9 @@ target = [1 if i < 12500 else 0 for i in range(25000)]
 
 # <h3> Building the Neural Network Model </h3>
 
+
+
+
 # In[45]:
 
 
@@ -384,7 +387,13 @@ model.compile(loss = 'binary_crossentropy', optimizer = 'sgd',metrics=[metrics.m
 model.summary()
 
 
+
+
+
 # <h3> Training the Model </h3>
+
+
+
 
 # In[51]:
 
