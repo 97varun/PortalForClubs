@@ -3,13 +3,12 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
         themeSystem: 'bootstrap4',
         header: {
-            left: 'month,agendaWeek,agendaDay today',
+            left: 'today',
             center: 'prev title next',
             right: 'Add'
         },
         height: 'parent',
         fixedWeekCount: false,
-        selectable: true,
         eventLimit: true,
         // events coming from json feed
         eventSources: [
@@ -165,13 +164,21 @@ $(document).ready(function() {
                             click: addEvent
                         }
                     });
+                    $('.fc-right').append($('#nav-menu-container').html());
                 } else {
                     $('#calendar').fullCalendar('option', 'customButtons', {});
+                    $('.fc-right').append($('#nav-menu-container').html());
                 }
             },
             error: function(error) {
                 alert("error: " + error);
             }
         });
+    }
+    $("body").on('click', ".fc-right #nav-menu", toggleNavMenu);
+    function toggleNavMenu(x) {
+        x = x.currentTarget;
+        $(x).toggleClass("change");
+        $("#myDropdown").toggle();
     }
 }); 

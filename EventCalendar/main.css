@@ -1,6 +1,7 @@
 /* don't do scrollbars */
 body {
     overflow: hidden; 
+    padding: 2% 1% 0% 0%;
 }
 /* positioning parent div of calendar */
 #calendar-container {
@@ -39,4 +40,22 @@ body {
 .popover-header {
     min-height: 45px;
     line-height: 166%;
+}
+.close {
+    text-shadow: none;
+}
+button {
+    height: 2.3em !important;
+}
+.container {
+    padding: 0 !important;
+}
+.dropdown-content {
+    background-color: rgb(92, 91, 91) !important;
+	opacity:.99 !important;
+}
+#nav-menu-btn {
+    border: none;
+    background: none;
+    outline: none;
 }

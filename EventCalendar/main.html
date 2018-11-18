@@ -12,11 +12,29 @@
     <script src="lib/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="../clubs/css/navigation.css">
 </head>
 <body>
     <div id='calendar-container'>
         <div id='calendar'></div>
     </div>
+    <!-- navigation menu -->
+    <div id="nav-menu-container" class="invisible">
+        <button id="nav-menu-btn">
+            <div id="nav-menu" class="container">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </button>
+    </div>    
+    <div id="myDropdown" style="display: none;" class="dropdown-content" style="position: absolute;">
+        <a href="../student/html/student.html">Home</a></br>
+        <a href="main.html">Calendar</a></br>
+        <a href="../clubs/php/logout.php">Logout</a>
+    </div>    
+    <!--end of navigation menu-->
+
     <!-- title for popover that comes up when you click an event -->
     <div id="popover-title" class="invisible">
         <span id="title"></span>
