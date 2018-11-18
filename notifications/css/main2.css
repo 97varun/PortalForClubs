@@ -14,9 +14,9 @@
 	canvas, details, embed, figure, figcaption,
 	footer, header, hgroup, menu, nav, output, ruby,
 	section, summary, time, mark, audio, video {
-		margin: 0;
+
 		padding: 0;
-		border: 0;
+
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
@@ -74,16 +74,14 @@
  	}
 	
 	[class*="col-"] {
+		margin-top:-5px; 
     margin-bottom: 25px; 
-	margin-right: 25px;
-	margin-left: 95px;
+	margin-right: 0px;
+	margin-left: 200px;
 	background-color:white;
 	}
 
-	input::-moz-focus-inner {
-		border: 0;
-		padding: 0;
-	}
+
 
 	input, select, textarea {
 		-moz-appearance: none;
