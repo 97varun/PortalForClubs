@@ -262,6 +262,19 @@ INSERT INTO `past_event` (`event_id`, `club_id`, `date_cur`, `time_cur`, `end_ti
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `register_event`
+--
+
+CREATE TABLE `register_event` (
+  `register_event_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `student_id` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -452,6 +465,7 @@ ALTER TABLE `club_member`
 -- Indexes for table `create_event`
 --
 ALTER TABLE `create_event`
+  ADD PRIMARY KEY (`event_id`),
   ADD KEY `create_event_ibfk_1` (`club_id`);
 
 --
@@ -474,6 +488,12 @@ ALTER TABLE `create_fest_event`
 --
 ALTER TABLE `past_event`
   ADD KEY `past_event_ibfk_1` (`club_id`);
+--
+-- Indexes for table `register_event`
+--
+ALTER TABLE `register_event`
+  ADD PRIMARY KEY (`register_event_id`),
+  ADD KEY `register_event_ibfk_1` (`event_id`);
 
 --
 -- Indexes for table `students`
@@ -550,7 +570,19 @@ ALTER TABLE `create_fest_event`
 --
 ALTER TABLE `past_event`
   ADD CONSTRAINT `past_event_ibfk_1` FOREIGN KEY (`club_id`) REFERENCES `club` (`Club_ID`);
-  
+--
+-- AUTO_INCREMENT for table `register_event`
+--
+ALTER TABLE `register_event`
+  MODIFY `register_event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+--
+-- Constraints for table `register_event`
+--
+ALTER TABLE `register_event`
+  ADD CONSTRAINT `register_event_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `create_event` (`event_id`) ON DELETE CASCADE;
+
+
+
 CREATE TABLE `rooms` (
  `RoomId` int(4) NOT NULL,
  `RoomName` varchar(20) DEFAULT NULL,
