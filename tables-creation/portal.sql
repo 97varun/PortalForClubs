@@ -275,6 +275,20 @@ CREATE TABLE `register_event` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `register_fest_event`
+--
+
+CREATE TABLE `register_fest_event` (
+  `register_fest_event_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fest_event_id` int(11) NOT NULL,
+  `student_id` varchar(20) NOT NULL,
+  PRIMARY KEY(`register_fest_event_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `students`
 --
 
@@ -494,7 +508,11 @@ ALTER TABLE `past_event`
 ALTER TABLE `register_event`
   ADD PRIMARY KEY (`register_event_id`),
   ADD KEY `register_event_ibfk_1` (`event_id`);
-
+--
+-- Indexes for table `register_fest_event`
+--
+ALTER TABLE `register_fest_event`
+  ADD CONSTRAINT `register_fest_event_ibfk_1` FOREIGN KEY (`fest_event_id`) REFERENCES `create_fest_event` (`fest_event_id`) ON DELETE CASCADE;
 --
 -- Indexes for table `students`
 --
