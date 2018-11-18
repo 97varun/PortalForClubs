@@ -191,9 +191,12 @@ $(document).ready(function() {
                         click: customButtons.View.text == 'Events' ? addEvent : bookRoom
                     }
                     customButtons = $('#calendar').fullCalendar('option', 'customButtons', customButtons);
+                    // giving appropriate home page link
+                    $("#myDropdown a:contains('Home')").attr('href', '../admin/html/admin.html');
                 } else {
                     delete customButtons.Add;
                     customButtons = $('#calendar').fullCalendar('option', 'customButtons', customButtons);
+                    $("#myDropdown a:contains('Home')").attr('href', '../student/html/student.html');
                 }
                 addNavMenuBtn();
             },
