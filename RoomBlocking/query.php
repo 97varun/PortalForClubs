@@ -33,6 +33,19 @@ if ($conn->connect_error) {
 $sql ="SELECT RoomId FROM rooms r WHERE NOT EXISTS (SELECT * FROM bookings b WHERE r.roomid = b.roomid AND (".'\''.$Frd.'\''." BETWEEN b.from_d AND b.to_d OR ".'\''.$Td.'\''." BETWEEN b.from_d AND b.to_d))";
 //echo $sql;
 $result = $conn->query($sql);
+echo '<link rel="stylesheet" href="navigation.css">';
+echo '<script  src="navigation.js"></script>';
+echo '<div class="container" onclick="myFunction(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+        <a href="../../student/html/student.html">Home</a></br>
+        <a href="../../EventCalendar/main.html">Calendar</a></br>
+        <a href="../php/logout.php">Logout</a>
+     
+    </div> ';
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
     	echo '<link rel="stylesheet" href="main.css">';
