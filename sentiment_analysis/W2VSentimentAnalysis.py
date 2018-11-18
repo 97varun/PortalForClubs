@@ -129,7 +129,13 @@ def review_to_wordlist(raw_review):
     return meaningful_words
 
 
+
+
+
 # <h3> Convert `review` into sentences </h3>
+
+
+
 
 # In[13]:
 
@@ -152,7 +158,13 @@ def review_to_sentences(review, tokenizer, remove_stopwords = False):
     return sentences
 
 
+
+
+
 # <h2> Preprocessing for Word2Vec Model </h2>
+
+
+
 
 # In[6]:
 
@@ -166,6 +178,9 @@ for line in open('./data/movie_data/full_test.txt', 'r'):
     reviews_test.append(line.strip())
 
 
+
+
+
 # In[16]:
 
 
@@ -174,6 +189,9 @@ training_sentences = []
 training_review_data = []
 testing_sentences = []
 testing_review_data = []
+
+
+
 
 
 # In[17]:
