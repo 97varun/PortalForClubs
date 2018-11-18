@@ -206,6 +206,9 @@ for review in reviews_train:
     training_review_data.append(review_to_wordlist(review))
 
 
+
+
+
 # In[18]:
 
 
@@ -218,9 +221,18 @@ for review in reviews_test:
     testing_review_data.append(review_to_wordlist(review))
 
 
+
+
+
 # <h2> Helper functions for Vector manipulation </h2>
 
+
+
+
 # <h3> Function to create word vectors </h3>
+
+
+
 
 # In[24]:
 
