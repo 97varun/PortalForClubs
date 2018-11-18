@@ -35,7 +35,7 @@
 				// output data of each row
 				while($row = mysqli_fetch_assoc($result))
 				{
-					echo'<div class="col-lg-3 " id="rcorners3" >';
+					echo'<div class="col-lg-4 " id="rcorners3" >';
 					echo'<div class="bg-primary text-right nested_div">';
 					echo'<span class="position_text">';
 					echo"<br>";
