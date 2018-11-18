@@ -6,6 +6,21 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="../css/main2.css" />
+		<!--Menu Bar-->
+		<link rel="stylesheet" href="../../admin/css/navigation.css" >
+		<script  src="../../admin/js/navigation.js"></script> 
+		
+			<div class="container1" onclick="myFunction(this)">
+		  <div class="bar1"></div>
+		  <div class="bar2"></div>
+		  <div class="bar3"></div>
+		</div>
+		<div id="myDropdown" style="visibility:hidden;" class="dropdown-content" >
+			<a href="../../admin/html/admin.html">Home</a></br>
+			<a href="../../notifications/php/registered_students.php">Event Registrations</a></br>
+			<a href="../../admin/php/logout.php">Logout</a></br>					 
+		</div>
+		<!-- --->
 	</head>
 	<body class="is-preload">
 		<?php
