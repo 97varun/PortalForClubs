@@ -5,16 +5,19 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="../css/main1.css" />
+		<link rel="stylesheet" href="../css/main2.css" />
 	</head>
 	<body class="is-preload">
 		<?php
+			session_start();
 			$servername = "localhost";
 			$username1 = "root";
 			$password1 = "";
 			$dbname = "portal";
 			$link = mysqli_connect($servername, $username1, $password1, $dbname);
 			// Check connection
+			extract($_SESSION);
+			$_SESSION['srn'];
 			if (!$link)
 			{
 				die("Connection failed: " . mysqli_connect_error());
@@ -23,7 +26,7 @@
 			$result=mysqli_query($link,$m);
 			$n="DELETE FROM create_event WHERE date(date_cur)<CURDATE()";
 			$result=mysqli_query($link,$n);	
-			$a="SELECT * from create_event";		
+			$a="SELECT * from create_event";
 			$result=mysqli_query($link,$a); 	
 			echo'<hr />';
 			echo'<div class="container-fluid">';
@@ -33,7 +36,7 @@
 				// output data of each row
 				while($row = mysqli_fetch_assoc($result))
 				{
-					echo'<div class="col-lg-3 " id="rcorners3" >';
+					echo'<div class="col-lg-4" id="rcorners3" >';
 					echo'<div class="bg-primary text-right nested_div">';
 					echo'<span class="position_text">';
 					echo"<br>";
@@ -63,11 +66,16 @@
 					echo' ';
 					echo $row["invite"];
 					echo"<br>";
+					echo str_repeat("&nbsp;", 30);
+					//echo $row["event_id"];
+					$x=$row["event_id"];
+					echo '<a href=../../notifications/php/notify.php onclick="return func(\''.$srn.'\','.$x.');">register</a>';
+					echo"<br>";
 					echo"</div>";
 				}
 				echo'</div>';
 			}
-			echo"</div>"
+			echo"</div>";
 		?>
 		<script src="../js/event.js"> </script>
 	</body>
