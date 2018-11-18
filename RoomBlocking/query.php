@@ -14,18 +14,18 @@
 	}
 </script>
 <?php
+session_start(); 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "portal";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-$name=$_POST["Name"];
 $Frd=$_POST["Dp"];
 $Frd = date('Y-m-d', strtotime(str_replace('-', '/', $Frd)));
 $Td=$_POST["Dp1"];
 $Td = date('Y-m-d', strtotime(str_replace('-', '/', $Td)));
-$En=$_POST["Ename"];
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -35,6 +35,7 @@ $sql ="SELECT RoomId FROM rooms r WHERE NOT EXISTS (SELECT * FROM bookings b WHE
 $result = $conn->query($sql);
 echo '<link rel="stylesheet" href="navigation.css">';
 echo '<script  src="navigation.js"></script>';
+echo '<script  src="box.js"></script>';
 echo '<div class="container" onclick="myFunction(this)">
       <div class="bar1"></div>
       <div class="bar2"></div>
@@ -46,14 +47,33 @@ echo '<div class="container" onclick="myFunction(this)">
         <a href="../php/logout.php">Logout</a>
      
     </div> ';
+echo '<link rel="stylesheet" href="main.css">';
+echo '<link rel="stylesheet" href="box.css">';
+
 if ($result->num_rows > 0) {
+	
+    echo '<body>';
+    echo '<ul class="rolldown-list" id="myList">';
     while($row = $result->fetch_assoc()) {
-    	echo '<link rel="stylesheet" href="main.css">';
-    	echo '<body class="login">';
-        echo "<h1>Room: " . $row["RoomId"]." Available </h1><br>";
-        echo '<button type="button" id='.$row["RoomId"].' class="btn btn-primary btn-block btn-large" onclick="Sub(event)">Book!</button><br>';
-        echo '</body>';
+    	echo'<li>';
+        echo "<h2>Room: " . $row["RoomId"]." Available </h2><br>";
+        echo '<button type="button" id='.$row["RoomId"].' class="btn " onclick="Sub(event)">Book!</button><br>';
+        echo'</li>';
+        
     }
+    echo"</ul>";
+    echo '</body>';
+    $sql1="SELECT Club_name FROM club where Club_ID=(SELECT Club_ID from admin where Admin_USN="."'".$_SESSION['srn']."'".")";
+    $result1= $conn->query($sql1);
+    if ($result1->num_rows > 0) {
+    	while($row = $result1->fetch_assoc()) {
+    		$En=$row["Club_name"];
+    	}
+	}
+	else{
+		echo "Query failed";
+	}
+    //echo $En;
     echo '<div id="From" style="display : none">'.'\''.$Frd.'\''.' </div>';
     echo '<div id="To" style="display : none">'.'\''.$Td.'\''.' </div>';
     echo '<div id="Name" style="display : none">'.'\''.$En.'\''.' </div>';
