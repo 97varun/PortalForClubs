@@ -614,6 +614,12 @@ ALTER TABLE `past_event`
 ALTER TABLE `register_event`
   MODIFY `register_event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
+-- AUTO_INCREMENT for table `create_event`
+--
+ALTER TABLE `create_event`
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- Constraints for table `register_event`
 --
 ALTER TABLE `register_event`
