@@ -47,6 +47,7 @@
 			$a="SELECT * from create_event WHERE club_id IN (SELECT admin.club_id FROM admin,create_event where admin.Club_id=create_event.club_id and admin.Admin_USN='$srn')";
 			$result=mysqli_query($link,$a); 	
 			echo'<br>';
+			echo'<hr />';
 			echo'<div class="container-fluid">';
 			if (mysqli_num_rows($result) > 0)
 			{
